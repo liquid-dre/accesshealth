@@ -13,14 +13,16 @@ export function ImageSlot({
 	alt,
 	src,
 	className,
+	fallbackSrc = "/file.svg",
 	ratio = "square",
 }: {
 	alt: string;
 	src?: string;
+	fallbackSrc?: string;
 	className?: string;
 	ratio?: "square" | "wide" | "tall";
 }) {
-	const [curSrc, setCurSrc] = useState(src);
+	const [curSrc] = useState(src);
 
 	const aspect =
 		ratio === "wide"
@@ -28,7 +30,7 @@ export function ImageSlot({
 			: ratio === "tall"
 			? "aspect-[3/4]"
 			: "aspect-square";
-	const placeholder = "/placeholder/placeholder.webp";
+	const placeholder = fallbackSrc;
 
 	return (
 		<div
