@@ -12,7 +12,7 @@ export default function ServicesPage() {
 				/>
 				<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{SERVICES.map((s) => (
-						<CardService key={s.slug} title={s.title} blurb={s.blurb} />
+						<CardService key={s.slug} {...s} />
 					))}
 				</div>
 			</div>
