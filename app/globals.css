@@ -12,6 +12,16 @@
 	}
 }
 
+@keyframes pulse-color {
+	0%,
+	100% {
+		stroke: var(--brand-blue);
+	}
+	50% {
+		stroke: var(--brand-red);
+	}
+}
+
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
@@ -183,7 +193,7 @@
 		mask-composite: exclude;
 		pointer-events: none;
 	}
-	
+
 	.gradient-text {
 		background: linear-gradient(to right, var(--brand-blue), var(--brand-red));
 		-webkit-background-clip: text;

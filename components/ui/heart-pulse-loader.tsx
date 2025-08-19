@@ -28,7 +28,7 @@ export function HeartPulseLoader({
 				style={{
 					strokeDasharray: 100,
 					strokeDashoffset: 100,
-					animation: `pulse-wave ${duration}s linear infinite`,
+					animation: `pulse-wave ${duration}s linear infinite, pulse-color 3s ease-in-out infinite`,
 				}}
 			/>
 		</svg>

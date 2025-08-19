@@ -36,7 +36,7 @@ export function SiteHeader() {
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
 					{/* {loading && ( */}
-						<HeartPulseLoader className="h-4 w-16 gradient-text" />
+						<HeartPulseLoader className="h-4 w-16" />
 					{/* )} */}
 				</div>
 
