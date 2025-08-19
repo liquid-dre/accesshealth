@@ -19,7 +19,8 @@ export function ContactCTA() {
 							</p>
 							<div className="mt-6 space-y-2 text-sm">
 								<p>
-									<strong>Address:</strong> 123 Clinic Road, Harare
+									<strong>Address:</strong> 569 Campbell Road, Pomona, Harare,
+									Zimbabwe
 								</p>
 								<p>
 									<strong>Phone:</strong> +263 (0) 77 000 0000
