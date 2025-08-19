@@ -2,6 +2,12 @@
 // For now returns 501 to show it's intentionally not implemented yet.
 import { NextResponse } from "next/server";
 import { convex } from "@/lib/convex";
+import { api } from "@/convex/_generated/api";
+
+const { storageId, url } = await convex.mutation(
+  api.images.upload,
+  { file }
+);
 
 export async function POST(request: Request) {
   const formData = await request.formData();
