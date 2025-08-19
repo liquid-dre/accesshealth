@@ -1,6 +1,8 @@
 // components/shared/stacked-service-card.tsx
 import { Card } from "@/components/ui/card";
 
+type Tone = 0 | 1 | 2;
+
 const tones = [
 	{ bg: "bg-brand-blue50", dot: "bg-[color:var(--brand-blue)]" },
 	{ bg: "bg-brand-red50", dot: "bg-[color:var(--brand-red)]" },
@@ -14,7 +16,7 @@ export function StackedServiceCard({
 }: {
 	title: string;
 	blurb: string;
-	tone?: 0 | 1 | 2;
+	tone?: Tone;
 }) {
 	const t = tones[tone];
 	return (

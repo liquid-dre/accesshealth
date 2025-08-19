@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { StackedServiceCard } from "@/components/shared/stacked-service-card";
 
 export function ServicesGrid() {
+	const tones = [0, 1, 2] as const;
 	return (
 		<section className="section">
 			<div className="container">
@@ -17,7 +18,7 @@ export function ServicesGrid() {
 							key={s.slug}
 							title={s.title}
 							blurb={s.blurb}
-							tone={i % 3}
+							tone={tones[i % tones.length]}
 						/>
 					))}
 				</div>
