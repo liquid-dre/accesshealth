@@ -1,13 +1,13 @@
 import { ContactCTA } from "@/components/hero/contact-cta";
 import { Hero } from "@/components/hero/hero";
-import { ServicesGrid } from "@/components/hero/services-grid";
 import { Testimonials } from "@/components/hero/testimonials";
+import { ServicesSection } from "@/components/sections/services-section";
 
 export default function HomePage() {
 	return (
 		<>
 			<Hero />
-			<ServicesGrid />
+			<ServicesSection />
 			<Testimonials />
 			<ContactCTA />
 		</>
