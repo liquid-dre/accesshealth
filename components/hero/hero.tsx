@@ -18,7 +18,7 @@ export function Hero() {
 						See an expert in as little as 48 hours.
 					</p>
 					<div className="mt-8 space-y-4">
-						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-2xl p-5 shadow-sm text-[color:var(--gray)]">
+						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-full p-5 shadow-sm text-[color:var(--gray)]">
 							<div className="flex items-start gap-3 flex-1">
 								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--primary)] text-[color:var(--white)]">
 									<Calendar className="h-5 w-5" />
@@ -34,12 +34,14 @@ export function Hero() {
 							</div>
 							<Button
 								asChild
-								className="btn-pill bg-[color:var(--primary)] text-[color:var(--white)]"
+								className="btn-pill bg-[color:var(--primary)] rounded-full text-[color:var(--white)] transition-all duration-200 hover:scale-120 active:scale-95 hover:bg-[color:var(--primary)]/90"
 							>
 								<Link href="#contact">Book online</Link>
 							</Button>
 						</div>
-						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-2xl p-5 shadow-sm text-[color:var(--gray)]">
+
+						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-full p-5 shadow-sm text-[color:var(--gray)]">
+							{" "}
 							<div className="flex items-start gap-3 flex-1">
 								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--danger)] text-[color:var(--white)]">
 									<Mail className="h-5 w-5" />
@@ -55,7 +57,7 @@ export function Hero() {
 							</div>
 							<Button
 								asChild
-								className="btn-pill bg-[color:var(--primary)] text-[color:var(--white)]"
+								className="btn-pill bg-[color:var(--primary)] sm:w-auto rounded-full text-[color:var(--white)] transition-all duration-200 hover:scale-120 active:scale-95 hover:bg-[color:var(--primary)]/90"
 							>
 								<Link href="#contact">Make an enquiry</Link>
 							</Button>
