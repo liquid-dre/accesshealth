@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { ConvexClientProvider } from "@/ConvexClientProvider";
 
 const plus = Plus_Jakarta_Sans({
 	subsets: ["latin"],
@@ -26,27 +27,29 @@ export default function SiteLayout({
 			<body
 				className={`${plus.variable} font-sans text-gray-800 antialiased bg-[var(--brand-sand)]`}
 			>
-				{/* soft hero-wide gradient like Unmind */}
-				<div className="pointer-events-none fixed inset-0 -z-10">
-					<div
-						className="absolute -top-40 -left-32 h-[50vh] w-[60vw] rounded-full blur-3xl opacity-50"
-						style={{
-							background:
-								"radial-gradient(800px 400px at 30% 20%, #dfe8ff 0%, transparent 60%)",
-						}}
-					/>
-					<div
-						className="absolute top-20 right-0 h-[45vh] w-[45vw] rounded-full blur-3xl opacity-40"
-						style={{
-							background:
-								"radial-gradient(600px 320px at 70% 10%, #ffd4d4 0%, transparent 60%)",
-						}}
-					/>
-				</div>
+				<ConvexClientProvider>
+					{/* soft hero-wide gradient like Unmind */}
+					<div className="pointer-events-none fixed inset-0 -z-10">
+						<div
+							className="absolute -top-40 -left-32 h-[50vh] w-[60vw] rounded-full blur-3xl opacity-50"
+							style={{
+								background:
+									"radial-gradient(800px 400px at 30% 20%, #dfe8ff 0%, transparent 60%)",
+							}}
+						/>
+						<div
+							className="absolute top-20 right-0 h-[45vh] w-[45vw] rounded-full blur-3xl opacity-40"
+							style={{
+								background:
+									"radial-gradient(600px 320px at 70% 10%, #ffd4d4 0%, transparent 60%)",
+							}}
+						/>
+					</div>
 
-				<SiteHeader />
-				<main>{children}</main>
-				<SiteFooter />
+					<SiteHeader />
+					<main>{children}</main>
+					<SiteFooter />
+				</ConvexClientProvider>
 			</body>
 		</html>
 	);
