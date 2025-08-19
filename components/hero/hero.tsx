@@ -8,47 +8,55 @@ import { ImageSlot } from "@/components/shared/image-slot";
 
 export function Hero() {
 	return (
-		<section className="section relative overflow-hidden">
+		<section className="hero-spire section relative overflow-hidden">
 			<div className="container grid md:grid-cols-2 gap-12 items-center">
 				<div>
-					<h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-						The sooner you're better, the better
+					<h1 className="text-4xl md:text-5xl font-semibold leading-tight text-[color:var(--white)]">
+						The sooner you&apos;re better, the better
 					</h1>
-					<p className="mt-4 text-lg text-gray-700">
+					<p className="mt-4 text-lg text-[color:var(--white)]">
 						See an expert in as little as 48 hours.
 					</p>
 					<div className="mt-8 space-y-4">
-						<div className="flex flex-col sm:flex-row items-center gap-4 bg-white border rounded-2xl p-5 shadow-sm">
+						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-2xl p-5 shadow-sm text-[color:var(--gray)]">
 							<div className="flex items-start gap-3 flex-1">
-								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-brand-blue100 text-[color:var(--brand-blue)]">
+								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--primary)] text-[color:var(--white)]">
 									<Calendar className="h-5 w-5" />
 								</div>
 								<div>
-									<div className="font-semibold">
+									<div className="font-semibold text-[color:var(--gray)]">
 										Book an appointment online
 									</div>
-									<p className="text-sm text-gray-600">
+									<p className="text-sm text-[color:var(--gray)]">
 										Choose a consultant and a time to suit you
 									</p>
 								</div>
 							</div>
-							<Button asChild className="btn-pill bg-[color:var(--brand-blue)]">
+							<Button
+								asChild
+								className="btn-pill bg-[color:var(--primary)] text-[color:var(--white)]"
+							>
 								<Link href="#contact">Book online</Link>
 							</Button>
 						</div>
-						<div className="flex flex-col sm:flex-row items-center gap-4 bg-white border rounded-2xl p-5 shadow-sm">
+						<div className="flex flex-col sm:flex-row items-center gap-4 bg-[color:var(--white)] border rounded-2xl p-5 shadow-sm text-[color:var(--gray)]">
 							<div className="flex items-start gap-3 flex-1">
-								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-brand-red100 text-[color:var(--brand-red)]">
+								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--danger)] text-[color:var(--white)]">
 									<Mail className="h-5 w-5" />
 								</div>
 								<div>
-									<div className="font-semibold">Have an enquiry?</div>
-									<p className="text-sm text-gray-600">
+									<div className="font-semibold text-[color:var(--gray)]">
+										Have an enquiry?
+									</div>
+									<p className="text-sm text-[color:var(--gray)]">
 										Send an enquiry and we will contact you
 									</p>
 								</div>
 							</div>
-							<Button asChild className="btn-pill bg-[color:var(--brand-blue)]">
+							<Button
+								asChild
+								className="btn-pill bg-[color:var(--primary)] text-[color:var(--white)]"
+							>
 								<Link href="#contact">Make an enquiry</Link>
 							</Button>
 						</div>

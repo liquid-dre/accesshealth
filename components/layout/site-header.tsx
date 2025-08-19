@@ -12,8 +12,8 @@ export function SiteHeader() {
 
 	return (
 		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
-			<div className="container h-16 flex items-center justify-between">
-				<Link href="/" className="font-semibold tracking-tight text-xl">
+			<div className="container h-16 flex items-center  justify-between">
+				<Link href="/" className="font-semibold tracking-tight text-4xl">
 					<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
 					<span className="text-[color:var(--brand-red)]">Health</span>
 				</Link>
