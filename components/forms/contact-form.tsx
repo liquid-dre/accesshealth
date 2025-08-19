@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 
 export function ContactForm() {
 	const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ export function ContactForm() {
 				body: JSON.stringify(values),
 			});
 			window.location.href = "/thank-you";
-		} catch (e) {
+		} catch {
 			alert("Something went wrong. Please try again.");
 		} finally {
 			setLoading(false);
@@ -84,7 +85,14 @@ export function ContactForm() {
 				disabled={loading}
 				className="w-full bg-[color:var(--brand-red)] hover:bg-red-700"
 			>
-				{loading ? "Sending..." : "Send message"}
+				{loading ? (
+					<>
+						<HeartPulseLoader aria-hidden="true" />
+						<span className="sr-only">Sending...</span>
+					</>
+				) : (
+					"Send message"
+				)}
 			</Button>
 		</form>
 	);
