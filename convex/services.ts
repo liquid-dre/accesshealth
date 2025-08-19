@@ -1,8 +1,4 @@
-// import { mutation } from "convex/server";
-// import { query } from "convex/server";
-// import { v } from "convex/values";
-
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const addService = mutation({
@@ -25,9 +21,9 @@ export const addService = mutation({
 	},
 });
 
-// export const getServices = query({
-// 	args: {},
-// 	handler: async (ctx) => {
-// 		return await ctx.db.query("services").collect();
-// 	},
-// });
+export const getServices = query({
+	args: {},
+	handler: async (ctx) => {
+		return await ctx.db.query("services").collect();
+	},
+});
