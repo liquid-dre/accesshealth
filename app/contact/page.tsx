@@ -1,4 +1,5 @@
 import { ContactCTA } from "@/components/hero/contact-cta";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
 	return (
@@ -11,56 +12,65 @@ export default function ContactPage() {
 							{/* Left Section: Map */}
 							<div className="md:col-span-2 rounded-lg overflow-hidden shadow-md">
 								<iframe
-									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.5562764124965!2d31.07727447545934!3d-17.74719238318728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x193132e48232b70f%3A0x6a0c5678822005d5!2sPick%20n%20Pay%20Hogerty%20Hill%20Centre!5e0!3m2!1sen!2szw!4v1701389278964!5m2!1sen!2szw"
+									src="https://maps.google.com/maps?q=74X8%2BP2X%2C%20William%20Powlett%20Dr%2C%20Harare&output=embed"
 									className="w-full h-[450px] border-0"
 									loading="lazy"
 									allowFullScreen
 									referrerPolicy="no-referrer-when-downgrade"
-									aria-label="Location of Pick n Pay Hogerty Hill on Google Maps"
+									aria-label="Location on Google Maps"
 								></iframe>
 							</div>
 
 							{/* Right Section: Contact Information */}
-							<div
-								className="md:col-span-1 p-6 rounded-lg space-y-6"
-								style={{ backgroundColor: "#ece8e1" }}
-							>
-								<h2 className="text-2xl font-bold text-gray-600 mb-6">
+							<div className="md:col-span-1 bg-gray-50 p-6 rounded-lg space-y-6">
+								<h2 className="text-2xl font-bold text-gray-700 mb-6">
 									Get In Touch
 								</h2>
 
-								<div className="space-y-4">
-									<div>
-										<p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-											Address
-										</p>
-										<p className="text-lg text-black font-medium mt-1">
-											Pick n Pay, Hogerty Hill Centre, Harare, Zimbabwe
-										</p>
+								<div className="space-y-4 text-gray-700">
+									<div className="flex items-start space-x-3">
+										<MapPin className="h-5 w-5 mt-1 text-gray-600" />
+										<div>
+											<p className="text-sm font-semibold uppercase tracking-wide">
+												Address
+											</p>
+											<p className="text-lg text-gray-900 font-medium mt-1">
+												74X8+P2X, William Powlett Dr, Harare
+											</p>
+										</div>
 									</div>
-									<div>
-										<p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-											Phone
-										</p>
-										<p className="text-lg text-black font-medium mt-1">
-											+263 (0) 77 000 0000
-										</p>
+									<div className="flex items-start space-x-3">
+										<Phone className="h-5 w-5 mt-1 text-gray-600" />
+										<div>
+											<p className="text-sm font-semibold uppercase tracking-wide">
+												Phone
+											</p>
+											<p className="text-lg text-gray-900 font-medium mt-1">
+												+263 (0) 77 000 0000
+											</p>
+										</div>
 									</div>
-									<div>
-										<p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-											Email
-										</p>
-										<p className="text-lg text-black font-medium mt-1">
-											hello@accesshealth.co.zw
-										</p>
+									<div className="flex items-start space-x-3">
+										<Mail className="h-5 w-5 mt-1 text-gray-600" />
+										<div>
+											<p className="text-sm font-semibold uppercase tracking-wide">
+												Email
+											</p>
+											<p className="text-lg text-gray-900 font-medium mt-1">
+												hello@accesshealth.co.zw
+											</p>
+										</div>
 									</div>
-									<div>
-										<p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-											Hours
-										</p>
-										<p className="text-lg text-black font-medium mt-1">
-											Mon–Fri 08:00–18:00, Sat 09:00–13:00
-										</p>
+									<div className="flex items-start space-x-3">
+										<Clock className="h-5 w-5 mt-1 text-gray-600" />
+										<div>
+											<p className="text-sm font-semibold uppercase tracking-wide">
+												Hours
+											</p>
+											<p className="text-lg text-gray-900 font-medium mt-1">
+												Mon–Fri 08:00–18:00, Sat 09:00–13:00
+											</p>
+										</div>
 									</div>
 								</div>
 
