@@ -3,54 +3,63 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-// import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const router = useRouter();
+	const pathname = usePathname();
+
+	useEffect(() => setLoading(false), [pathname]);
 
 	useEffect(() => {
-		const handleStart = () => setLoading(true);
-		const handleStop = () => setLoading(false);
-
-		router.events.on("routeChangeStart", handleStart);
-		router.events.on("routeChangeComplete", handleStop);
-		router.events.on("routeChangeError", handleStop);
-
-		return () => {
-			router.events.off("routeChangeStart", handleStart);
-			router.events.off("routeChangeComplete", handleStop);
-			router.events.off("routeChangeError", handleStop);
-		};
+		router.prefetch("/services");
+		router.prefetch("/team");
+		router.prefetch("/resources");
 	}, [router]);
 
 	return (
 		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
 			<div className="container h-16 flex items-center  justify-between">
 				<div className="flex items-center gap-2">
-					<Link href="/" className="font-semibold tracking-tight text-4xl">
+					<Link
+						href="/"
+						className="font-semibold tracking-tight text-4xl"
+						onClick={() => setLoading(true)}
+					>
 						<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
-					{loading && (
-						<HeartPulseLoader className="h-4 w-16 text-[color:var(--brand-red)]" />
-					)}
+					{/* {loading && ( */}
+						<HeartPulseLoader className="h-4 w-16 gradient-text" />
+					{/* )} */}
 				</div>
 
 				<nav className="hidden md:flex gap-6 items-center text-[15px]">
-					<Link href="/services" className="hover:opacity-80">
+					<Link
+						href="/services"
+						className="hover:opacity-80"
+						onClick={() => setLoading(true)}
+					>
 						Services
 					</Link>
-					<Link href="/team" className="hover:opacity-80">
+					<Link
+						href="/team"
+						className="hover:opacity-80"
+						onClick={() => setLoading(true)}
+					>
 						Team
 					</Link>
-					<Link href="/resources" className="hover:opacity-80">
+					<Link
+						href="/resources"
+						className="hover:opacity-80"
+						onClick={() => setLoading(true)}
+					>
 						Resources
 					</Link>
 					<a href="#contact" className="hover:opacity-80">
@@ -76,16 +85,40 @@ export function SiteHeader() {
 					</SheetTrigger>
 					<SheetContent side="right" className="pt-12">
 						<div className="flex flex-col gap-5 text-lg">
-							<Link href="/" onClick={() => setOpen(false)}>
+							<Link
+								href="/"
+								onClick={() => {
+									setOpen(false);
+									setLoading(true);
+								}}
+							>
 								Home
 							</Link>
-							<Link href="/services" onClick={() => setOpen(false)}>
+							<Link
+								href="/services"
+								onClick={() => {
+									setOpen(false);
+									setLoading(true);
+								}}
+							>
 								Services
 							</Link>
-							<Link href="/team" onClick={() => setOpen(false)}>
+							<Link
+								href="/team"
+								onClick={() => {
+									setOpen(false);
+									setLoading(true);
+								}}
+							>
 								Team
 							</Link>
-							<Link href="/resources" onClick={() => setOpen(false)}>
+							<Link
+								href="/resources"
+								onClick={() => {
+									setOpen(false);
+									setLoading(true);
+								}}
+							>
 								Resources
 							</Link>
 							<a href="#contact" onClick={() => setOpen(false)}>

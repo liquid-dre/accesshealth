@@ -4,12 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @keyframes pulse-wave {
-        0% {
-                stroke-dashoffset: 100;
-        }
-        100% {
-                stroke-dashoffset: -100;
-        }
+	0% {
+		stroke-dashoffset: 100;
+	}
+	100% {
+		stroke-dashoffset: -100;
+	}
 }
 
 @theme inline {
@@ -133,12 +133,12 @@
 }
 
 .hero-spire {
-        background-color: #008385;
-        color: #fff;
-        font-family: "TheSans Spire Light", sans-serif;
-        padding-right: 0;
-        padding-left: 0;
-        min-height: 455px;
+	background-color: #008385;
+	color: #fff;
+	font-family: "TheSans Spire Light", sans-serif;
+	padding-right: 0;
+	padding-left: 0;
+	min-height: 455px;
 }
 
 @layer base {
@@ -183,6 +183,13 @@
 		mask-composite: exclude;
 		pointer-events: none;
 	}
+	
+	.gradient-text {
+		background: linear-gradient(to right, var(--brand-blue), var(--brand-red));
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 
 	.section {
 		@apply py-16 md:py-24;
@@ -191,5 +198,3 @@
 		@apply mx-auto max-w-6xl px-4;
 	}
 }
-
-
