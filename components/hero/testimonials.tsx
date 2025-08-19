@@ -1,20 +1,24 @@
+// components/home/testimonials.tsx
 import { TESTIMONIALS } from "@/lib/data";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { Carousel, CarouselItem } from "@/components/shared/carousel";
 
 export function Testimonials() {
 	return (
 		<section className="section">
 			<div className="container">
-				<SectionHeading
-					title="What Patients Say"
-					subtitle="A welcoming environment and attentive care."
-				/>
+				<div className="text-center mb-10">
+					<h2 className="text-3xl md:text-4xl font-semibold">
+						What patients say
+					</h2>
+					<p className="text-gray-600 mt-2">
+						Real experiences from our community.
+					</p>
+				</div>
 				<Carousel>
 					{TESTIMONIALS.map((t, i) => (
 						<CarouselItem key={i}>
-							<div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl border shadow-soft">
-								<p className="text-lg text-gray-800">“{t.text}”</p>
+							<div className="card p-8 max-w-3xl mx-auto text-center">
+								<p className="text-lg">“{t.text}”</p>
 								<div className="mt-4 font-semibold text-[color:var(--brand-blue)]">
 									{t.name}
 								</div>

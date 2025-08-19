@@ -1,3 +1,4 @@
+// app/(site)/team/page.tsx
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CardTeam } from "@/components/shared/card-team";
 
@@ -24,7 +25,7 @@ export default function TeamPage() {
 		<section className="section">
 			<div className="container">
 				<SectionHeading
-					title="Meet the Team"
+					title="Meet the team"
 					subtitle="Professional profiles and friendly faces."
 				/>
 				<div className="grid md:grid-cols-2 gap-6">

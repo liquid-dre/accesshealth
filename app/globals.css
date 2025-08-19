@@ -128,6 +128,37 @@
 		background: var(--brand-sand);
 	}
 
+	/* pill button optic */
+	/* .btn-pill {
+		@apply rounded-pill px-6 py-3 font-semibold;
+	} */
+	.btn-pill {
+		/* Replace `rounded-pill` with `rounded-full` */
+		@apply rounded-full px-6 py-3 font-semibold;
+	}
+	/* card */
+	.card {
+		@apply bg-white rounded-3xl border border-[rgba(12,20,33,0.06)] shadow-md;
+	}
+
+	/* subtle gradient borders (Unmind-like finesse) */
+	.grad-border {
+		position: relative;
+	}
+	.grad-border::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		padding: 1px;
+		border-radius: 1.75rem;
+		background: linear-gradient(135deg, #dfe8ff, #ffd4d4);
+		-webkit-mask: linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+	}
+
 	.section {
 		@apply py-16 md:py-24;
 	}
