@@ -28,7 +28,7 @@ export function SiteFooter() {
             <li><a href="/services" className="hover:underline">Services</a></li>
             <li><a href="/team" className="hover:underline">Meet the Team</a></li>
             <li><a href="/resources" className="hover:underline">Resources</a></li>
-            <li><a href="#contact" className="hover:underline">Book an Appointment</a></li>
+            <li><a href="/contact" className="hover:underline">Book an Appointment</a></li>
           </ul>
         </div>
       </div>

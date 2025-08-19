@@ -21,6 +21,7 @@ export function SiteHeader() {
 		router.prefetch("/services");
 		router.prefetch("/team");
 		router.prefetch("/resources");
+		router.prefetch("/contact");
 	}, [router]);
 
 	return (
@@ -36,7 +37,7 @@ export function SiteHeader() {
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
 					{/* {loading && ( */}
-						<HeartPulseLoader className="h-4 w-16" />
+					<HeartPulseLoader className="h-4 w-16" />
 					{/* )} */}
 				</div>
 
@@ -62,9 +63,13 @@ export function SiteHeader() {
 					>
 						Resources
 					</Link>
-					<a href="#contact" className="hover:opacity-80">
+					<Link
+						href="/contact"
+						className="hover:opacity-80"
+						onClick={() => setLoading(true)}
+					>
 						Contact
-					</a>
+					</Link>
 				</nav>
 
 				<div className="hidden md:block">
@@ -72,7 +77,9 @@ export function SiteHeader() {
 						asChild
 						className="btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift hover:-translate-y-0.5 transition"
 					>
-						<Link href="#contact">Book an appointment</Link>
+						<Link href="/contact" onClick={() => setLoading(true)}>
+							Book an appointment
+						</Link>
 					</Button>
 				</div>
 
@@ -121,11 +128,25 @@ export function SiteHeader() {
 							>
 								Resources
 							</Link>
-							<a href="#contact" onClick={() => setOpen(false)}>
+							<Link
+								href="/contact"
+								onClick={() => {
+									setOpen(false);
+									setLoading(true);
+								}}
+							>
 								Contact
-							</a>
+							</Link>
 							<Button asChild className="btn-pill bg-[color:var(--brand-blue)]">
-								<a href="#contact">Book</a>
+								<Link
+									href="/contact"
+									onClick={() => {
+										setOpen(false);
+										setLoading(true);
+									}}
+								>
+									Book
+								</Link>
 							</Button>
 						</div>
 					</SheetContent>

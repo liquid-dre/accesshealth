@@ -23,7 +23,7 @@ export function ServicesSection() {
 							transition={{ duration: 0.5 }}
 						>
 							<div className={`${i % 2 === 1 ? "md:col-start-2" : ""}`}>
-								<div className="p-8 rounded-3xl bg-gradient-to-br from-brand-blue50 to-brand-mint hover:scale-105 transition-transform">
+								<div className="p-8 rounded-3xl border border-gray-300 bg-gradient-to-br from-brand-blue50 to-brand-mint hover:scale-105 transition-transform">
 									<h3 className="text-xl font-semibold">{s.title}</h3>
 									<p className="mt-2 text-gray-700">{s.blurb}</p>
 								</div>
