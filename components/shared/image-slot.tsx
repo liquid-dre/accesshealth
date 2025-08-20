@@ -13,7 +13,7 @@ export function ImageSlot({
 	alt,
 	src,
 	className,
-	fallbackSrc = "/pediatrician.jpg",
+	fallbackSrc = "/hero.jpg",
 	ratio = "square",
 }: {
 	alt: string;
