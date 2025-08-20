@@ -1,3 +1,4 @@
+"use client"
 // components/home/testimonials.tsx
 import { TESTIMONIALS } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
