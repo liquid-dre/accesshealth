@@ -1,28 +1,45 @@
 "use client";
 
 // (Embla wrapper for testimonials)
-
+import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useState } from "react";
+import type { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
+import { cn } from "@/lib/utils";
 
-export function Carousel({ children }: { children: React.ReactNode }) {
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-	const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+type CarouselProps = React.PropsWithChildren<{
+	className?: string;
+	opts?: EmblaOptionsType;
+	plugins?: EmblaPluginType[];
+}>;
 
-	useEffect(() => {
-		if (!emblaApi) return;
-		const id = setInterval(() => emblaApi.scrollNext(), 4000);
-		setIntervalId(id);
-		return () => id && clearInterval(id);
-	}, [emblaApi]);
-
+export function Carousel({
+	className,
+	opts,
+	plugins,
+	children,
+}: CarouselProps) {
+	const [emblaRef] = useEmblaCarousel(opts, plugins);
 	return (
-		<div className="overflow-hidden" ref={emblaRef}>
-			<div className="flex">{children}</div>
+		<div ref={emblaRef} className={cn("overflow-hidden", className)}>
+			{children}
 		</div>
 	);
 }
 
-export function CarouselItem({ children }: { children: React.ReactNode }) {
-	return <div className="min-w-0 flex-[0_0_100%] px-2">{children}</div>;
+export function CarouselContent({
+	className,
+	children,
+}: React.PropsWithChildren<{ className?: string }>) {
+	return <div className={cn("flex", className)}>{children}</div>;
+}
+
+export function CarouselItem({
+	className,
+	children,
+}: React.PropsWithChildren<{ className?: string }>) {
+	return (
+		<div className={cn("min-w-0 flex-[0_0_100%] px-2", className)}>
+			{children}
+		</div>
+	);
 }

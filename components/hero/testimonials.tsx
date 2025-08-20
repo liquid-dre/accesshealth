@@ -1,6 +1,11 @@
 // components/home/testimonials.tsx
 import { TESTIMONIALS } from "@/lib/data";
-import { Carousel, CarouselItem } from "@/components/shared/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+} from "@/components/shared/carousel";
 
 export function Testimonials() {
 	return (
@@ -14,17 +19,19 @@ export function Testimonials() {
 						Real experiences from our community.
 					</p>
 				</div>
-				<Carousel>
-					{TESTIMONIALS.map((t, i) => (
-						<CarouselItem key={i}>
-							<div className="card p-8 max-w-3xl mx-auto text-center">
-								<p className="text-lg">“{t.text}”</p>
-								<div className="mt-4 font-semibold text-[color:var(--brand-blue)]">
-									{t.name}
+				<Carousel opts={{ loop: true }} plugins={[Autoplay({ delay: 4000 })]}>
+					<CarouselContent>
+						{TESTIMONIALS.map((t, i) => (
+							<CarouselItem key={i}>
+								<div className="card p-8 max-w-3xl mx-auto text-center">
+									<p className="text-lg">“{t.text}”</p>
+									<div className="mt-4 font-semibold text-[color:var(--brand-blue)]">
+										{t.name}
+									</div>
 								</div>
-							</div>
-						</CarouselItem>
-					))}
+							</CarouselItem>
+						))}
+					</CarouselContent>
 				</Carousel>
 			</div>
 		</section>
