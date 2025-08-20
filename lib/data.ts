@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export const SERVICES = [
 	{
 		slug: "gp-consultation",
@@ -68,5 +70,55 @@ export const TESTIMONIALS = [
 	{
 		name: "Rudo K.",
 		text: "They took time to explain everything to me and my mum.",
+	},
+];
+
+export interface TeamMember {
+	name: string;
+	bio: string;
+	serviceSlug: string;
+	photoUrl?: string;
+	links?: { href: string; label: string; icon: LucideIcon }[];
+}
+
+export const TEAM: TeamMember[] = [
+	{
+		serviceSlug: "gp-consultation",
+		name: "Dr. Alice N.",
+		bio: "Gentle, thorough, and family-focused.",
+		photoUrl: "/gp-consultation-service.jpg",
+	},
+	{
+		serviceSlug: "paediatric-clinic",
+		name: "Dr. Brian K.",
+		bio: "Compassionate care for children and parents.",
+		photoUrl: "/pediatrician1.jpg",
+	},
+	{
+		serviceSlug: "specialist-physician",
+		name: "Dr. Chipo T.",
+		bio: "Evidence-based specialist care.",
+		photoUrl: "/specialist-service.webp",
+	},
+	{
+		serviceSlug: "minor-surgical",
+		name: "Dr. David M.",
+		bio: "Precise surgical care with quick recovery.",
+		photoUrl: "/minor-surgery-service.avif",
+	},
+	{
+		serviceSlug: "family-health",
+		name: "Nurse Evelyn P.",
+		bio: "Supporting families through every stage of life.",
+	},
+	{
+		serviceSlug: "prescriptions",
+		name: "Pharmacist Farai G.",
+		bio: "Ensures safe and accurate prescriptions.",
+	},
+	{
+		name: "Nurse Emily R.",
+		bio: "Supportive care across family health services.",
+		serviceSlug: "family-health",
 	},
 ];
