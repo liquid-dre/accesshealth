@@ -1,12 +1,7 @@
 // app/(site)/resources/page.tsx
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Card } from "@/components/ui/card";
-
-const resources = [
-	{ title: "Managing Hypertension at Home", href: "#" },
-	{ title: "Childhood Vaccination Schedule", href: "#" },
-	{ title: "Understanding Ultrasound Scans", href: "#" },
-];
+import resources from "@/lib/resourcedata/resources.json";
 
 export default function ResourcesPage() {
 	return (
@@ -19,13 +14,16 @@ export default function ResourcesPage() {
 				<div className="grid md:grid-cols-2 gap-6">
 					{resources.map((r) => (
 						<Card
-							key={r.title}
+							key={r.id}
 							className="rounded-3xl p-6 hover:shadow-lift transition"
 						>
-							<a className="font-semibold hover:underline" href={r.href}>
+							<a
+								className="font-semibold hover:underline"
+								href={`/resource/${r.id}`}
+							>
 								{r.title}
 							</a>
-							<p className="text-sm text-gray-600 mt-2">Coming soon.</p>
+							<p className="text-sm text-gray-600 mt-2">Read more.</p>
 						</Card>
 					))}
 				</div>
