@@ -52,7 +52,7 @@
 // export function generateStaticParams() {
 // 	return resources.map((r) => ({ resourceId: [r.id] }));
 // }
-import ResourcePageClient from "./_components/resource-page-client";
+import ResourceClientPage from "./_components/resource-page-client";
 
 interface ResourcePageProps {
 	params: Promise<{ resourceId?: string[] }>;
@@ -63,7 +63,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
 	// Server-side data fetching could occur here
 
-	return <ResourcePageClient resourceId={resourceId} />;
+	return <ResourceClientPage resourceId={resourceId} />;
 }
 
 export async function generateStaticParams() {

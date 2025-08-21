@@ -1,25 +1,26 @@
-"use client";
+import { ContentBlocks } from "@/components/resources/ContentBlocks";
 
-import { useState } from "react";
 
-interface ResourcePageClientProps {
-	resourceId: string[];
+interface ResourceClientPageProps {
+	title: string;
+	subtitle: string;
+	content: any; // Blocks or similar data consumed by ContentBlocks
 }
 
-export default function ResourcePageClient({
-	resourceId,
-}: ResourcePageClientProps) {
-	const [count, setCount] = useState(0);
+export const ResourceClientPage = ({
+	title,
+	subtitle,
+	content,
+}: ResourceClientPageProps) => (
+	<article className="max-w-3xl mx-auto px-6 py-12">
+		<header className="mb-12">
+			<h1 className="text-4xl font-bold mb-4">{title}</h1>
+			<p className="text-xl text-gray-600">{subtitle}</p>
+		</header>
 
-	return (
-		<div className="space-y-4">
-			<div>Resource: {resourceId.join("/") || "none"}</div>
-			<button
-				className="px-4 py-2 rounded bg-blue-500 text-white"
-				onClick={() => setCount((c) => c + 1)}
-			>
-				Clicked {count} times
-			</button>
-		</div>
-	);
-}
+		{/* ContentBlocks is responsible for rendering blocks (markdown, images, etc.) */}
+		<section className="prose prose-lg max-w-none">
+			<ContentBlocks blocks={content} />
+		</section>
+	</article>
+);
