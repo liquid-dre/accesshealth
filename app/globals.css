@@ -27,12 +27,11 @@
 	30%,
 	60%,
 	100% {
-		transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+		transform: scale(1);
 	}
 	15%,
 	45% {
-		transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-			scale(1.05);
+		transform: scale(1.05);
 	}
 }
 
