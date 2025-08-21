@@ -8,7 +8,6 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 import { useRouter, usePathname } from "next/navigation";
-import { PulsingRippleButton } from "@/components/shared/pulsing-ripple-button";
 
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
@@ -74,7 +73,14 @@ export function SiteHeader() {
 				</nav>
 
 				<div className="hidden md:block">
-					<PulsingRippleButton onClick={() => setLoading(true)} />
+					<Button
+						asChild
+						className="btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift transition hover-heartbeat"
+					>
+						<Link href="/contact" onClick={() => setLoading(true)}>
+							Book an appointment
+						</Link>
+					</Button>
 				</div>
 
 				{/* Mobile */}
@@ -131,7 +137,17 @@ export function SiteHeader() {
 							>
 								Contact
 							</Link>
-							<PulsingRippleButton onClick={() => setLoading(true)} />
+							<Button asChild className="btn-pill bg-[color:var(--brand-blue)]">
+								<Link
+									href="/contact"
+									onClick={() => {
+										setOpen(false);
+										setLoading(true);
+									}}
+								>
+									Book
+								</Link>
+							</Button>
 						</div>
 					</SheetContent>
 				</Sheet>
