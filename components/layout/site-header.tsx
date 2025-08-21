@@ -41,11 +41,11 @@ export function SiteHeader() {
 
 	return (
 		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
-			<div className="container h-16 flex items-center  justify-between">
+			<div className="container h-14 md:h-16 px-4 sm:px-6 flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<Link
 						href="/"
-						className="font-semibold tracking-tight text-4xl"
+						className="font-semibold tracking-tight text-2xl sm:text-3xl md:text-4xl"
 						onClick={() => setLoading(true)}
 					>
 						<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
@@ -116,7 +116,7 @@ export function SiteHeader() {
 						</Button>
 					</SheetTrigger>
 					<SheetContent side="right" className="pt-12">
-						<div className="flex flex-col gap-5 text-lg">
+						<div className="flex flex-col justify-center align-middle gap-5 text-lg">
 							<Link
 								href="/"
 								onClick={() => {
