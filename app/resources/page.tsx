@@ -48,10 +48,18 @@ export default function ResourcesPage() {
 			if (canHover) {
 				cards.forEach((card) => {
 					// Ensure a clean baseline so layout stays aligned
+					const isDarkMode =
+						document.documentElement.classList.contains("dark");
+					const baseShadow = isDarkMode
+						? "0 6px 20px rgba(0,0,0,0.3)"
+						: "0 6px 20px rgba(0,0,0,0.08)";
+					const hoverShadow = isDarkMode
+						? "0 12px 40px rgba(0,0,0,0.4)"
+						: "0 12px 40px rgba(0,0,0,0.12)";
 					gsap.set(card, {
 						y: 0,
 						scale: 1,
-						boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+						boxShadow: baseShadow,
 						transformOrigin: "center",
 					});
 
@@ -61,7 +69,7 @@ export default function ResourcesPage() {
 					tl.to(card, {
 						y: -8,
 						scale: 1.02,
-						boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+						boxShadow: hoverShadow,
 					});
 
 					const onEnter = () => tl.play();
@@ -99,7 +107,7 @@ export default function ResourcesPage() {
 							key={r.id}
 							className={cn(
 								"resource-card h-full rounded-3xl p-6",
-								"bg-white text-slate-900",
+								"bg-card text-card-foreground dark:bg-slate-800 dark:text-slate-100",
 								// No CSS hover transforms—GSAP controls hover entirely
 								"transition-[box-shadow,transform] will-change-transform"
 							)}
@@ -110,7 +118,9 @@ export default function ResourcesPage() {
 							>
 								{r.title}
 							</a>
-							<p className="text-sm text-slate-500 mt-2">Read more.</p>
+							<p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+								Read more.
+							</p>
 						</Card>
 					))}
 				</div>
