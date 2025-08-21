@@ -23,13 +23,13 @@ export default function SiteLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="">
 			<body
-				className={`${plus.variable} font-sans text-gray-800 antialiased bg-[var(--brand-sand)]`}
+				className={`${plus.variable} font-sans antialiased bg-background text-foreground`}
 			>
 				<ConvexClientProvider>
 					{/* soft hero-wide gradient like Unmind */}
-					<div className="pointer-events-none fixed inset-0 -z-10">
+					<div className="pointer-events-none fixed inset-0 -z-10 dark:hidden">
 						<div
 							className="absolute -top-40 -left-32 h-[50vh] w-[60vw] rounded-full blur-3xl opacity-50"
 							style={{
