@@ -8,6 +8,8 @@ import {
 	type Block,
 } from "@/components/resources/ContentBlocks";
 
+gsap.registerPlugin(ScrollTrigger);
+
 interface ResourceClientPageProps {
 	title: string;
 	subtitle: string;
