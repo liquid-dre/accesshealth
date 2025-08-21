@@ -20,7 +20,7 @@ export function Hero() {
 					<div className="mt-8 space-y-4">
 						<div className="flex flex-col items-center gap-4 rounded-full border border-border bg-card p-5 shadow-sm text-muted-foreground sm:flex-row">
 							<div className="flex items-start gap-3 flex-1">
-								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--primary)] text-white">
+								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[#0b43dc] text-white dark:bg-[#42d9c8] dark:text-black">
 									<Calendar className="h-5 w-5" />
 								</div>
 								<div>
@@ -34,7 +34,7 @@ export function Hero() {
 							</div>
 							<Button
 								asChild
-								className="btn-pill rounded-full bg-[color:var(--primary)] text-white transition-all duration-200 hover:scale-120 hover:bg-[color:var(--primary)]/90 active:scale-95"
+								className="btn-pill rounded-full bg-[color:var(--primary)] text-white transition-all duration-200 hover:scale-120 hover:bg-[color:var(--primary)]/90 active:scale-95 dark:bg-[#42d9c8] dark:hover:bg-[#42d9c8]/90 dark:text-black"
 							>
 								<Link href="#contact">Book online</Link>
 							</Button>
@@ -42,11 +42,11 @@ export function Hero() {
 
 						<div className="flex flex-col items-center gap-4 rounded-full border border-border bg-card p-5 shadow-sm text-muted-foreground sm:flex-row">
 							<div className="flex flex-1 items-start gap-3">
-								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--danger)] text-white">
+								<div className="h-10 w-10 flex items-center justify-center rounded-full bg-[color:var(--danger)] text-white dark:text-black ">
 									<Mail className="h-5 w-5" />
 								</div>
 								<div>
-									<div className="font-semibold text-foreground">
+									<div className="font-semibold text-foreground ">
 										Have an enquiry?
 									</div>
 									<p className="text-sm text-muted-foreground">
@@ -56,7 +56,7 @@ export function Hero() {
 							</div>
 							<Button
 								asChild
-								className="btn-pill rounded-full bg-[color:var(--primary)] text-white transition-all duration-200 hover:scale-120 hover:bg-[color:var(--primary)]/90 active:scale-95 sm:w-auto"
+								className="btn-pill rounded-full bg-[color:var(--primary)] text-white transition-all duration-200 hover:scale-120 hover:bg-[color:var(--primary)]/90 active:scale-95 sm:w-auto dark:bg-[#42d9c8] dark:hover:bg-[#42d9c8]/90 dark:text-black"
 							>
 								<Link href="#contact">Make an enquiry</Link>
 							</Button>
