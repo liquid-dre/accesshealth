@@ -53,11 +53,16 @@ export const ResourceClientPage = ({
 				},
 			});
 
-			tl.fromTo(
-				path,
-				{ strokeDashoffset: length },
-				{ strokeDashoffset: 0, ease: "none" }
-			).to(
+			// tl.fromTo(
+			// 	path,
+			// 	{ strokeDashoffset: length },
+			// 	{ strokeDashoffset: 0, duration: 1, ease: "none" }
+			// )
+			tl.to(path, {
+				strokeDashoffset: 0,
+				duration: 1,
+				ease: "power2.out", // same easing as the circle
+			}).to(
 				circle,
 				{
 					motionPath: {
@@ -65,6 +70,8 @@ export const ResourceClientPage = ({
 						align: path,
 						alignOrigin: [0.5, 0.5],
 					},
+					duration: 1,
+					ease: "power2.out",
 				},
 				0
 			);
