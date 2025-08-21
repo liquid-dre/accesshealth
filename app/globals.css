@@ -24,13 +24,13 @@
 
 @keyframes heartbeat {
 	0%,
-	30%,
-	60%,
+	40%,
+	80%,
 	100% {
 		transform: scale(1);
 	}
-	15%,
-	45% {
+	20%,
+	60% {
 		transform: scale(1.05);
 	}
 }
@@ -224,5 +224,38 @@
 	}
 	.container {
 		@apply mx-auto max-w-6xl px-4;
+	}
+}
+
+@layer utilities {
+	.animate-pulse-slow {
+		animation: pulse-slow 3s ease-in-out infinite;
+	}
+	.animate-ripple {
+		animation: ripple 0.6s ease-out forwards;
+	}
+	.animate-heartbeat {
+		animation: heartbeat 1.3s ease-in-out infinite;
+	}
+}
+
+@keyframes pulse-slow {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+@keyframes ripple {
+	0% {
+		transform: scale(0);
+		opacity: 0.5;
+	}
+	100% {
+		transform: scale(4);
+		opacity: 0;
 	}
 }

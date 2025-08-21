@@ -45,14 +45,7 @@ export function ImageSlot({
 				className="object-cover"
 				sizes="(min-width: 768px) 400px, 100vw"
 			/>
-			{/* Replace this with your future uploader trigger */}
-			{!curSrc && (
-				<div className="absolute inset-0 bg-black/10 flex items-end justify-end p-2">
-					<Button size="sm" variant="secondary" className="bg-white">
-						Upload (soon)
-					</Button>
-				</div>
-			)}
+			
 		</div>
 	);
 }
