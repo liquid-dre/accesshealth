@@ -3,12 +3,13 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import {
 	ContentBlocks,
 	type Block,
 } from "@/components/resources/ContentBlocks";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 interface ResourceClientPageProps {
 	title: string;
@@ -23,6 +24,7 @@ export const ResourceClientPage = ({
 }: ResourceClientPageProps) => {
 	const containerRef = useRef<HTMLElement>(null);
 	const pathRef = useRef<SVGPathElement>(null);
+	const circleRef = useRef<SVGCircleElement>(null);
 
 	useEffect(() => {
 		const prefersReduced = window.matchMedia(
@@ -33,7 +35,8 @@ export const ResourceClientPage = ({
 		const ctx = gsap.context(() => {
 			const container = containerRef.current;
 			const path = pathRef.current;
-			if (!container || !path) return;
+			const circle = circleRef.current;
+			if (!container || !path || !circle) return;
 
 			const length = path.getTotalLength();
 			gsap.set(path, {
@@ -55,6 +58,20 @@ export const ResourceClientPage = ({
 					},
 				}
 			);
+
+			gsap.to(circle, {
+				motionPath: {
+					path,
+					align: path,
+					alignOrigin: [0.5, 0.5],
+				},
+				scrollTrigger: {
+					trigger: container,
+					start: "top bottom",
+					end: "bottom top",
+					scrub: true,
+				},
+			});
 		}, containerRef);
 
 		return () => ctx.revert();
@@ -90,6 +107,7 @@ export const ResourceClientPage = ({
 						willChange: "stroke-dashoffset",
 					}}
 				/>
+				<circle ref={circleRef} r={6} fill="currentColor" />
 			</svg>
 		</article>
 	);
