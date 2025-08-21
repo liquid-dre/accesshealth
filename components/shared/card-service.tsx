@@ -11,7 +11,8 @@ export function CardService({
 	image: string;
 }) {
 	return (
-		<Card className="rounded-3xl border-none bg-transparent shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer">
+		<Card className="rounded-3xl border border-none dark:border-gray-700 bg-transparent shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer">
+			{" "}
 			<CardHeader className="p-0">
 				<div className="relative overflow-hidden bg-transparent aspect-[16/9]">
 					<Image

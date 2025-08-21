@@ -51,9 +51,7 @@ export function SiteHeader() {
 						<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
-					{/* {loading && ( */}
 					<HeartPulseLoader className="h-4 w-16" />
-					{/* )} */}
 				</div>
 
 				<nav className="hidden md:flex gap-6 items-center text-[15px]">
@@ -92,9 +90,9 @@ export function SiteHeader() {
 						aria-label="Toggle theme"
 					>
 						{isDark ? (
-							<Sun className="size-4 text-yellow-500" />
+							<Sun className="size-6 text-yellow-500" />
 						) : (
-							<MoonStar className="size-4 text-indigo-300" />
+							<MoonStar className="size-6 text-indigo-300" />
 						)}
 					</Button>
 				</nav>
