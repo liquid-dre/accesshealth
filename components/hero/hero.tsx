@@ -64,7 +64,7 @@ export function Hero() {
 					</div>
 				</div>
 				<div>
-					<div className="card grad-border p-3">
+					<div className="card  p-3">
 						<ImageSlot alt="Clinic reception" ratio="wide" />
 					</div>
 				</div>
