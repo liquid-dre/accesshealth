@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon, MoonStar } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 import { useRouter, usePathname } from "next/navigation";
@@ -12,6 +12,7 @@ import { useRouter, usePathname } from "next/navigation";
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [isDark, setIsDark] = useState(false);
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -23,6 +24,10 @@ export function SiteHeader() {
 		router.prefetch("/resources");
 		router.prefetch("/contact");
 	}, [router]);
+
+	useEffect(() => {
+		document.documentElement.classList.toggle("dark", isDark);
+	}, [isDark]);
 
 	return (
 		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
@@ -70,6 +75,18 @@ export function SiteHeader() {
 					>
 						Contact
 					</Link>
+					<Button
+						variant="ghost"
+						size="icon"
+						onClick={() => setIsDark((prev) => !prev)}
+						aria-label="Toggle theme"
+					>
+						{isDark ? (
+							<Sun className="size-4 text-yellow-500" />
+						) : (
+							<MoonStar className="size-4 text-indigo-300" />
+						)}
+					</Button>
 				</nav>
 
 				<div className="hidden md:block">
@@ -147,6 +164,18 @@ export function SiteHeader() {
 								>
 									Book
 								</Link>
+							</Button>
+							<Button
+								variant="ghost"
+								size="icon"
+								onClick={() => setIsDark((prev) => !prev)}
+								aria-label="Toggle theme"
+							>
+								{isDark ? (
+									<Sun className="size-4" />
+								) : (
+									<Moon className="size-4" />
+								)}
 							</Button>
 						</div>
 					</SheetContent>
