@@ -2,16 +2,89 @@
 	{
 		"id": "managing-hypertension-at-home",
 		"title": "Managing Hypertension at Home",
-		"content": "High blood pressure can often be managed with lifestyle changes. This resource provides tips on monitoring your blood pressure, reducing sodium intake, staying active, and working with your healthcare provider."
+		"content": [
+			{ "type": "heading", "text": "Managing Hypertension at Home" },
+			{
+				"type": "paragraph",
+				"text": "High blood pressure can often be managed with simple lifestyle adjustments. Regularly checking your blood pressure at home gives you and your doctor valuable insight into how well your plan is working."
+			},
+			{
+				"type": "paragraph",
+				"text": "Maintaining a diet low in sodium, staying physically active, and taking medications as prescribed are key steps toward keeping your numbers in a healthy range."
+			},
+			{
+				"type": "image",
+				"src": "/images/resources/hypertension.jpg",
+				"alt": "Person checking blood pressure at home",
+				"caption": "Home monitoring is essential for controlling hypertension."
+			},
+			{
+				"type": "list",
+				"items": [
+					"Monitor blood pressure regularly",
+					"Reduce sodium intake",
+					"Stay active",
+					"Work with your healthcare provider"
+				]
+			}
+		]
 	},
 	{
 		"id": "childhood-vaccination-schedule",
 		"title": "Childhood Vaccination Schedule",
-		"content": "Vaccinations protect children from serious illnesses. Learn the recommended immunization timeline, what each vaccine prevents, and how to keep your child's records up to date."
+		"content": [
+			{ "type": "heading", "text": "Childhood Vaccination Schedule" },
+			{
+				"type": "paragraph",
+				"text": "Vaccinations protect children from a variety of serious diseases. Following the recommended schedule ensures immunizations are given at the optimal time for the best protection."
+			},
+			{
+				"type": "paragraph",
+				"text": "Keep a record of your child's shots and consult your pediatrician if you miss a dose so they can help you get back on track."
+			},
+			{
+				"type": "image",
+				"src": "/images/resources/vaccination.jpg",
+				"alt": "Doctor preparing a vaccine for a child",
+				"caption": "Timely vaccines guard children against preventable illnesses."
+			},
+			{
+				"type": "list",
+				"items": [
+					"Review the immunization timeline",
+					"Know what each vaccine prevents",
+					"Update records after every visit"
+				]
+			}
+		]
 	},
 	{
 		"id": "understanding-ultrasound-scans",
 		"title": "Understanding Ultrasound Scans",
-		"content": "Ultrasound imaging uses sound waves to create pictures of the inside of the body. Discover how the procedure works, what to expect during a scan, and common reasons your doctor might order one."
+		"content": [
+			{ "type": "heading", "text": "Understanding Ultrasound Scans" },
+			{
+				"type": "paragraph",
+				"text": "Ultrasound imaging uses sound waves to produce pictures of organs and structures inside the body. It's a safe and painless procedure frequently used during pregnancy and to diagnose a range of conditions."
+			},
+			{
+				"type": "paragraph",
+				"text": "During the scan a technician glides a small probe over your skin, and a computer translates the returning echoes into images that physicians can analyze."
+			},
+			{
+				"type": "image",
+				"src": "/images/resources/ultrasound.jpg",
+				"alt": "Technician performing an ultrasound scan",
+				"caption": "Ultrasound scans create detailed images using sound waves."
+			},
+			{
+				"type": "list",
+				"items": [
+					"Noninvasive diagnostic tool",
+					"Commonly used in prenatal care",
+					"Helps identify internal issues"
+				]
+			}
+		]
 	}
 ]

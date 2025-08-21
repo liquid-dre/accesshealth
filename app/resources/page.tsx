@@ -46,8 +46,7 @@ export default function ResourcesPage() {
 					});
 
 					const tl = gsap.timeline({
-						paused: true,
-						defaults: { duration: 0.2, ease: "power2.out" },
+						defaults: { duration: 0.1, ease: "power4.out" },
 					});
 					tl.to(card, {
 						y: -8,

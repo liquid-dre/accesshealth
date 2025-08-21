@@ -1,10 +1,43 @@
 // components/ContentBlocks.tsx
 import Image from "next/image";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { ReactNode } from "react";
 
-export interface Block {
-	type: string;
-	[key: string]: unknown;
+export interface HeadingBlock {
+	type: "heading";
+	text: ReactNode;
 }
+
+export interface SubheadingBlock {
+	type: "subheading";
+	text: ReactNode;
+}
+
+export interface ParagraphBlock {
+	type: "paragraph";
+	text: ReactNode;
+}
+
+export interface ImageBlock {
+	type: "image";
+	src: string | StaticImport;
+	alt?: string;
+	width?: number;
+	height?: number;
+	caption?: ReactNode;
+}
+
+export interface ListBlock {
+	type: "list";
+	items: string[];
+}
+
+export type Block =
+	| HeadingBlock
+	| SubheadingBlock
+	| ParagraphBlock
+	| ImageBlock
+	| ListBlock;
 
 interface ContentBlocksProps {
 	blocks: Block[];
@@ -52,7 +85,7 @@ export const ContentBlocks: React.FC<ContentBlocksProps> = ({ blocks }) => (
 				case "list":
 					return (
 						<ul key={idx} className="list-disc list-inside">
-							{block.items.map((item: string, i: number) => (
+							{block.items.map((item, i) => (
 								<li key={i}>{item}</li>
 							))}
 						</ul>

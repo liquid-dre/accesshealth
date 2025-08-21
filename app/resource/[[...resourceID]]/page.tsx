@@ -66,8 +66,8 @@ interface ResourcePageProps {
 	params: { resourceId?: string[] };
 }
 
-export default function ResourcePage({ params }: ResourcePageProps) {
-	const slug = params.resourceId?.[0];
+export default async function ResourcePage({ params }: ResourcePageProps) {
+	const slug = await params.resourceId?.[0];
 	const resource = (resources as Resource[]).find((r) => r.id === slug);
 
 	if (!resource) {
