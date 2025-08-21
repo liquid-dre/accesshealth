@@ -41,16 +41,20 @@ export const ResourceClientPage = ({
 				strokeDashoffset: length,
 			});
 
-			gsap.to(path, {
-				strokeDashoffset: 0,
-				ease: "none",
-				scrollTrigger: {
-					trigger: container,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: true,
-				},
-			});
+			gsap.fromTo(
+				path,
+				{ strokeDashoffset: length },
+				{
+					strokeDashoffset: 0,
+					ease: "none",
+					scrollTrigger: {
+						trigger: container,
+						start: "top bottom",
+						end: "bottom top",
+						scrub: true,
+					},
+				}
+			);
 		}, containerRef);
 
 		return () => ctx.revert();
