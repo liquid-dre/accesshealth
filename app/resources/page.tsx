@@ -7,6 +7,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { cn } from "@/lib/utils";
 
+interface Resource {
+	id: string;
+	title: string;
+	content: string;
+}
+
 export default function ResourcesPage() {
 	const scope = useRef<HTMLDivElement | null>(null);
 
@@ -79,7 +85,7 @@ export default function ResourcesPage() {
 
 				{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-					{resources.map((r: any) => (
+					{resources.map((r: Resource) => (
 						<Card
 							key={r.id}
 							className={cn(

@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/shared/section-heading";
 import resources from "@/lib/resourcedata/resources.json";
 import { notFound } from "next/navigation";
+import { ContentBlocks } from "./content-blocks";
 
 interface PageProps {
 	params: { resourceId?: string[] };
@@ -21,8 +22,8 @@ export default function ResourcePage({ params }: PageProps) {
 					title={resource.title}
 					subtitle="Educational resource"
 				/>
-				<div className="mt-6 text-lg leading-7 whitespace-pre-line">
-					{resource.content}
+				<div className="mt-6 text-lg leading-7">
+					<ContentBlocks content={resource.content} />
 				</div>
 			</div>
 		</article>
