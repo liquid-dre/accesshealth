@@ -31,13 +31,31 @@ export interface ListBlock {
 	type: "list";
 	items: string[];
 }
+export interface OrderedListBlock {
+	type: "orderedList";
+	items: string[];
+}
+
+export interface BlockquoteBlock {
+	type: "blockquote";
+	text: ReactNode;
+}
+
+export interface LinkBlock {
+	type: "link";
+	text: ReactNode;
+	href: string;
+}
 
 export type Block =
 	| HeadingBlock
 	| SubheadingBlock
 	| ParagraphBlock
 	| ImageBlock
-	| ListBlock;
+	| ListBlock
+	| OrderedListBlock
+	| BlockquoteBlock
+	| LinkBlock;
 
 interface ContentBlocksProps {
 	blocks: Block[];
@@ -89,6 +107,33 @@ export const ContentBlocks: React.FC<ContentBlocksProps> = ({ blocks }) => (
 								<li key={i}>{item}</li>
 							))}
 						</ul>
+					);
+				case "orderedList":
+					return (
+						<ol key={idx} className="list-decimal list-inside">
+							{block.items.map((item, i) => (
+								<li key={i}>{item}</li>
+							))}
+						</ol>
+					);
+				case "blockquote":
+					return (
+						<blockquote
+							key={idx}
+							className="border-l-4 border-gray-300 pl-4 italic"
+						>
+							{block.text}
+						</blockquote>
+					);
+				case "link":
+					return (
+						<a
+							key={idx}
+							href={block.href}
+							className="text-blue-600 hover:underline"
+						>
+							{block.text}
+						</a>
 					);
 				default:
 					return null;

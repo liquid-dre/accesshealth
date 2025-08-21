@@ -26,6 +26,23 @@
 					"Stay active",
 					"Work with your healthcare provider"
 				]
+			},
+			{
+				"type": "blockquote",
+				"text": "Always consult your healthcare provider for personalized advice."
+			},
+			{
+				"type": "link",
+				"href": "https://www.cdc.gov/bloodpressure/index.htm",
+				"text": "Learn more about managing blood pressure on the CDC website"
+			},
+			{
+				"type": "orderedList",
+				"items": [
+					"Check your pressure daily",
+					"Record readings",
+					"Share results with your doctor"
+				]
 			}
 		]
 	},
