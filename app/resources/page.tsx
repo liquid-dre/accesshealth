@@ -2,16 +2,26 @@
 
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Card } from "@/components/ui/card";
-import resources from "@/lib/resourcedata/resources.json";
+import resourcesData from "@/lib/resourcedata/resources.json";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { cn } from "@/lib/utils";
 
+type ResourceContent =
+	| { type: "heading"; text: string }
+	| { type: "paragraph"; text: string }
+	| { type: "image"; src: string; alt: string; caption?: string }
+	| { type: "list" | "orderedList"; items: string[] }
+	| { type: "blockquote"; text: string }
+	| { type: "link"; href: string; text: string };
+
 interface Resource {
 	id: string;
 	title: string;
-	content: string;
+	content: ResourceContent[];
 }
+
+const resources = resourcesData as Resource[];
 
 export default function ResourcesPage() {
 	const scope = useRef<HTMLDivElement | null>(null);

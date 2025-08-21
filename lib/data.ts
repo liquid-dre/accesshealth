@@ -24,7 +24,7 @@ export const SERVICES = [
 		slug: "specialist-physician",
 		title: "Specialist Physician Clinic",
 		blurb: "Access to specialist consultations.",
-		image: "/specialist-service.webp",
+		image: "/images/services/specialist-service.webp",
 	},
 	{
 		slug: "minor-surgical",
