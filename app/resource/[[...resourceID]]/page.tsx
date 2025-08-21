@@ -1,3 +1,7 @@
+// "use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import { SectionHeading } from "@/components/shared/section-heading";
 import resources from "@/lib/resourcedata/resources.json";
 import { notFound } from "next/navigation";
@@ -11,6 +15,19 @@ export default function ResourcePage({ params }: PageProps) {
 	const slug = params.resourceId?.[0];
 	const resource = resources.find((r) => r.id === slug);
 
+	const headerRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		if (!headerRef.current) return;
+		gsap.from(headerRef.current, {
+			y: -20,
+			opacity: 0,
+			duration: 0.6,
+			ease: "power1.out",
+			delay: 0.2,
+		});
+	}, []);
+
 	if (!resource) {
 		notFound();
 	}
@@ -18,10 +35,12 @@ export default function ResourcePage({ params }: PageProps) {
 	return (
 		<article className="section">
 			<div className="container">
-				<SectionHeading
-					title={resource.title}
-					subtitle="Educational resource"
-				/>
+				<div ref={headerRef}>
+					<SectionHeading
+						title={resource.title}
+						subtitle="Educational resource"
+					/>
+				</div>
 				<div className="mt-6 text-lg leading-7">
 					<ContentBlocks content={resource.content} />
 				</div>
