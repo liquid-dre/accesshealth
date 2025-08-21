@@ -26,7 +26,17 @@ export function SiteHeader() {
 	}, [router]);
 
 	useEffect(() => {
+		const stored = localStorage.getItem("isDark");
+		if (stored !== null) {
+			setIsDark(stored === "true");
+		} else {
+			setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
+		}
+	}, []);
+
+	useEffect(() => {
 		document.documentElement.classList.toggle("dark", isDark);
+		localStorage.setItem("isDark", String(isDark));
 	}, [isDark]);
 
 	return (
@@ -92,7 +102,7 @@ export function SiteHeader() {
 				<div className="hidden md:block">
 					<Button
 						asChild
-						className="relative overflow-hidden btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift transition hover-heartbeat-red"
+						className="relative overflow-hidden btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift transition hover-heartbeat-red text-white"
 					>
 						<Link href="/contact" onClick={() => setLoading(true)}>
 							Book an appointment
