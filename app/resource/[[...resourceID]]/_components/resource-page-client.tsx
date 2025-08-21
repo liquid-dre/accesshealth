@@ -52,7 +52,7 @@ export const ResourceClientPage = ({
 					ease: "none",
 					scrollTrigger: {
 						trigger: container,
-						start: "top bottom",
+						start: "top 10%",
 						end: "bottom top",
 						scrub: true,
 					},
@@ -67,7 +67,7 @@ export const ResourceClientPage = ({
 				},
 				scrollTrigger: {
 					trigger: container,
-					start: "top bottom",
+					start: "top 10%",
 					end: "bottom top",
 					scrub: true,
 				},
