@@ -52,21 +52,41 @@
 // export function generateStaticParams() {
 // 	return resources.map((r) => ({ resourceId: [r.id] }));
 // }
-import ResourceClientPage from "./_components/resource-page-client";
+import { notFound } from "next/navigation";
+import resources from "@/lib/resourcedata/resources.json";
+import { ResourceClientPage } from "./_components/resource-page-client";
+import type { Block } from "@/components/resources/ContentBlocks";
 
+interface Resource {
+	id: string;
+	title: string;
+	content: string | Block[];
+}
 interface ResourcePageProps {
-	params: Promise<{ resourceId?: string[] }>;
+	params: { resourceId?: string[] };
 }
 
-export default async function ResourcePage({ params }: ResourcePageProps) {
-	const { resourceId = [] } = await params;
+export default function ResourcePage({ params }: ResourcePageProps) {
+	const slug = params.resourceId?.[0];
+	const resource = (resources as Resource[]).find((r) => r.id === slug);
 
-	// Server-side data fetching could occur here
+	if (!resource) {
+		notFound();
+	}
 
-	return <ResourceClientPage resourceId={resourceId} />;
+	const contentBlocks: Block[] = Array.isArray(resource.content)
+		? resource.content
+		: [{ type: "paragraph", text: resource.content }];
+
+	return (
+		<ResourceClientPage
+			title={resource.title}
+			subtitle="Educational resource"
+			content={contentBlocks}
+		/>
+	);
 }
 
-export async function generateStaticParams() {
-	// Provide static params for build-time rendering
-	return [];
+export function generateStaticParams() {
+	return (resources as Resource[]).map((r) => ({ resourceId: [r.id] }));
 }

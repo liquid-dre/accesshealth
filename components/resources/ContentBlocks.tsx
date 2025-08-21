@@ -1,9 +1,9 @@
 // components/ContentBlocks.tsx
 import Image from "next/image";
 
-interface Block {
+export interface Block {
 	type: string;
-	[key: string]: any;
+	[key: string]: unknown;
 }
 
 interface ContentBlocksProps {

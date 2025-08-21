@@ -1,10 +1,9 @@
-import { ContentBlocks } from "@/components/resources/ContentBlocks";
-
+import { ContentBlocks, type Block } from "@/components/resources/ContentBlocks";
 
 interface ResourceClientPageProps {
 	title: string;
 	subtitle: string;
-	content: any; // Blocks or similar data consumed by ContentBlocks
+	content: Block[]; // Blocks or similar data consumed by ContentBlocks
 }
 
 export const ResourceClientPage = ({
@@ -24,3 +23,5 @@ export const ResourceClientPage = ({
 		</section>
 	</article>
 );
+
+export default ResourceClientPage;
