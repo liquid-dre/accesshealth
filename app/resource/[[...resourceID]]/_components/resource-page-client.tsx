@@ -70,7 +70,7 @@ export const ResourceClientPage = ({
 			</section>
 
 			<svg
-				className="pointer-events-none absolute inset-0 h-full w-full"
+				className="pointer-events-none absolute top-0 left-full ml-8 h-full w-32"
 				fill="none"
 				viewBox="0 0 100 1000"
 			>
