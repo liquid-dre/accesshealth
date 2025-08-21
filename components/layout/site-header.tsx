@@ -5,13 +5,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Sun, Moon, MoonStar } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+	Sheet,
+	SheetContent,
+	SheetTrigger,
+	SheetTitle,
+} from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 import { useRouter, usePathname } from "next/navigation";
 
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
-	const [loading, setLoading] = useState(false);
+	const [, setLoading] = useState(false);
 	const [isDark, setIsDark] = useState(false);
 	const router = useRouter();
 	const pathname = usePathname();
@@ -116,6 +121,7 @@ export function SiteHeader() {
 						</Button>
 					</SheetTrigger>
 					<SheetContent side="right" className="pt-12">
+						<SheetTitle className="sr-only">Main Navigation</SheetTitle>
 						<div className="flex flex-col justify-center align-middle gap-5 text-lg">
 							<Link
 								href="/"
