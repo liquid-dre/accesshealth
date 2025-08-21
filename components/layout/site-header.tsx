@@ -75,7 +75,7 @@ export function SiteHeader() {
 				<div className="hidden md:block">
 					<Button
 						asChild
-						className="btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift hover:-translate-y-0.5 transition"
+						className="btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift hover:-translate-y-0.5 transition hover-heartbeat"
 					>
 						<Link href="/contact" onClick={() => setLoading(true)}>
 							Book an appointment

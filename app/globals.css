@@ -22,6 +22,24 @@
 	}
 }
 
+@keyframes heartbeat {
+	0%,
+	30%,
+	60%,
+	100% {
+		transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+	}
+	15%,
+	45% {
+		transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+			scale(1.05);
+	}
+}
+
+.hover-heartbeat:hover {
+	animation: heartbeat 1.3s ease-in-out infinite;
+}
+
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
@@ -97,7 +115,7 @@
 	--sidebar-ring: oklch(0.708 0 0);
 	--brand-blue: #0b43dc;
 	--brand-red: #c70d0d;
-	--brand-sand: #F6FAFF;
+	--brand-sand: #f6faff;
 	--brand-stone: #ece8e1;
 	--blue: #008385;
 	--green: #00a779;
@@ -187,7 +205,8 @@
 		padding: 1px;
 		border-radius: 1.75rem;
 		background: linear-gradient(135deg, #dfe8ff, #ffd4d4);
-		-webkit-mask: linear-gradient(#fff 0 0) content-box,
+		-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
 			linear-gradient(#fff 0 0);
 		-webkit-mask-composite: xor;
 		mask-composite: exclude;
