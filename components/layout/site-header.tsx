@@ -122,7 +122,7 @@ export function SiteHeader() {
 					</SheetTrigger>
 					<SheetContent side="right" className="pt-12">
 						<SheetTitle className="sr-only">Main Navigation</SheetTitle>
-						<div className="flex flex-col justify-center align-middle gap-5 text-lg">
+						<div className="flex flex-col items-center text-center gap-5 text-lg">
 							<Link
 								href="/"
 								onClick={() => {
@@ -168,7 +168,7 @@ export function SiteHeader() {
 							>
 								Contact
 							</Link>
-							<Button asChild className="btn-pill bg-[color:var(--brand-blue)]">
+							<Button asChild className="btn-pill bg-[color:var(--brand-blue)] text-white">
 								<Link
 									href="/contact"
 									onClick={() => {
