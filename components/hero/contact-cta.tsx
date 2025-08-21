@@ -7,33 +7,33 @@ export function ContactCTA() {
 		<section id="contact" className="section">
 			<div className="container">
 				<div className="card grad-border p-10">
-					<div className="grid md:grid-cols-2 gap-10 items-start">
+					<div className="grid items-start gap-10 md:grid-cols-2">
 						<div>
-							<p className="inline-block text-sm bg-white border rounded-pill px-3 py-1">
+							<p className="inline-block rounded-pill border border-border bg-card px-3 py-1 text-sm text-muted-foreground">
 								We’ll get back within 1 business day
 							</p>
 							<h3 className="mt-3 text-3xl font-semibold">Ready to visit?</h3>
-							<p className="text-gray-700 mt-2">
+							<p className="mt-2 text-muted-foreground">
 								Call, email, or send a message — we’ll confirm your booking
 								shortly.
 							</p>
-							<div className="mt-6 space-y-2 text-sm">
+							<div className="mt-6 space-y-2 text-sm text-muted-foreground">
 								<p>
-									<strong>Address:</strong> 569 Campbell Road, Pomona, Harare,
-									Zimbabwe
+									<strong>Address:</strong> Shop 22 mini mall, Hogerty Hill
+									Centre, William Powlett Dr, Harare
 								</p>
 								<p>
-									<strong>Phone:</strong> +263 (0) 77 000 0000
+									<strong>Phone:</strong> +263 (0) 78 345 8985
 								</p>
 								<p>
-									<strong>Email:</strong> hello@accesshealth.co.zw
+									<strong>Email:</strong> accesshealthclinics@gmail.com
 								</p>
 								<p>
 									<strong>Hours:</strong> Mon–Fri 08:00–18:00, Sat 09:00–13:00
 								</p>
 							</div>
 							<div className="mt-6">
-								<Button className="btn-pill bg-[color:var(--brand-blue)]">
+								<Button className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90">
 									Call now
 								</Button>
 							</div>

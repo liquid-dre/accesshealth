@@ -25,7 +25,7 @@ export function StackedServiceCard({
 				<span className={`h-2 w-2 rounded-full ${t.dot}`} />
 			</div>
 			<h3 className="mt-4 text-xl font-semibold">{title}</h3>
-			<p className="mt-2 text-gray-600">{blurb}</p>
+			<p className="mt-2 text-muted-foreground">{blurb}</p>
 		</Card>
 	);
 }

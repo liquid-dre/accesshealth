@@ -23,11 +23,13 @@ export function CardService({
 					/>
 				</div>
 			</CardHeader>
-			<CardContent className="p-6 space-y-3">
-				<CardTitle className="text-xl font-bold text-gray-800 tracking-tight">
+			<CardContent className="space-y-3 p-6">
+				<CardTitle className="text-xl font-bold tracking-tight text-foreground">
 					{title}
 				</CardTitle>
-				<p className="text-base text-gray-500 leading-relaxed">{blurb}</p>
+				<p className="text-base leading-relaxed text-muted-foreground">
+					{blurb}
+				</p>
 			</CardContent>
 		</Card>
 	);

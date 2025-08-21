@@ -35,11 +35,11 @@ export function ContactForm() {
 	return (
 		<form
 			onSubmit={submit}
-			className="p-6 bg-white rounded-2xl border shadow-soft space-y-4"
+			className="space-y-4 rounded-2xl border border-border bg-card p-6 shadow-soft text-foreground"
 		>
 			<div className="grid md:grid-cols-2 gap-4">
 				<div>
-					<label className="text-sm">Full name</label>
+					<label className="text-sm text-muted-foreground">Full name</label>
 					<Input
 						required
 						value={values.name}
@@ -48,7 +48,7 @@ export function ContactForm() {
 					/>
 				</div>
 				<div>
-					<label className="text-sm">Email</label>
+					<label className="text-sm text-muted-foreground">Email</label>
 					<Input
 						required
 						type="email"
@@ -61,7 +61,7 @@ export function ContactForm() {
 				</div>
 			</div>
 			<div>
-				<label className="text-sm">Phone</label>
+				<label className="text-sm text-muted-foreground">Phone</label>
 				<Input
 					value={values.phone}
 					onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
@@ -69,7 +69,7 @@ export function ContactForm() {
 				/>
 			</div>
 			<div>
-				<label className="text-sm">Message</label>
+				<label className="text-sm text-muted-foreground">Message</label>
 				<Textarea
 					required
 					value={values.message}
@@ -83,7 +83,7 @@ export function ContactForm() {
 			<Button
 				type="submit"
 				disabled={loading}
-				className="w-full bg-[color:var(--brand-red)] hover:bg-red-700"
+				className="w-full bg-[color:var(--brand-red)] text-white hover:bg-[color:var(--brand-red)]/90"
 			>
 				{loading ? (
 					<>

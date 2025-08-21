@@ -223,7 +223,7 @@
 	}
 	/* card */
 	.card {
-		@apply bg-white rounded-3xl border border-[rgba(12,20,33,0.06)] shadow-md;
+		@apply rounded-3xl border border-border bg-card shadow-md;
 	}
 
 	/* subtle gradient borders (Unmind-like finesse) */

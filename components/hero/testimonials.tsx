@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // components/home/testimonials.tsx
 import { TESTIMONIALS } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
@@ -16,7 +16,7 @@ export function Testimonials() {
 					<h2 className="text-3xl md:text-4xl font-semibold">
 						What patients say
 					</h2>
-					<p className="text-gray-600 mt-2">
+					<p className="mt-2 text-muted-foreground">
 						Real experiences from our community.
 					</p>
 				</div>
