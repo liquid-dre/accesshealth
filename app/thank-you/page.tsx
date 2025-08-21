@@ -1,12 +1,12 @@
+import { CheckCircle } from "lucide-react";
+
 export default function ThankYou() {
-	return (
-		<section className="section">
-			<div className="container text-center">
-				<h2 className="text-3xl font-semibold">Thanks for reaching out!</h2>
-				<p className="text-gray-700 mt-2">
-					We’ll get back to you shortly to confirm your appointment.
-				</p>
-			</div>
-		</section>
-	);
+  return (
+    <div className="relative h-screen">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white bg-opacity-90">
+        <CheckCircle size={64} className="text-green-500 mb-4" />
+        <p className="text-2xl font-bold text-green-700">Thanks for reaching out!</p>
+      </div>
+    </div>
+  );
 }
