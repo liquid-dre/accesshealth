@@ -63,14 +63,19 @@ export default function ResourcesPage() {
 						transformOrigin: "center",
 					});
 
-					const tl = gsap.timeline({
-						defaults: { duration: 0.1, ease: "power4.out" },
-					});
-					tl.to(card, {
-						y: -8,
-						scale: 1.02,
-						boxShadow: hoverShadow,
-					});
+					const tl = gsap
+						.timeline({
+							paused: true,
+							defaults: {
+								duration: 0.1,
+								ease: "power4.out",
+							},
+						})
+						.to(card, {
+							y: 8,
+							scale: 1.02,
+							boxShadow: hoverShadow,
+						});
 
 					const onEnter = () => tl.play();
 					const onLeave = () => tl.reverse();
