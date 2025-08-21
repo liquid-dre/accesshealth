@@ -44,27 +44,7 @@ export const ResourceClientPage = ({
 				strokeDashoffset: length,
 			});
 
-			gsap.fromTo(
-				path,
-				{ strokeDashoffset: length },
-				{
-					strokeDashoffset: 0,
-					ease: "none",
-					scrollTrigger: {
-						trigger: container,
-						start: "top 10%",
-						end: "bottom top",
-						scrub: true,
-					},
-				}
-			);
-
-			gsap.to(circle, {
-				motionPath: {
-					path,
-					align: path,
-					alignOrigin: [0.5, 0.5],
-				},
+			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: container,
 					start: "top 10%",
@@ -72,6 +52,22 @@ export const ResourceClientPage = ({
 					scrub: true,
 				},
 			});
+
+			tl.fromTo(
+				path,
+				{ strokeDashoffset: length },
+				{ strokeDashoffset: 0, ease: "none" }
+			).to(
+				circle,
+				{
+					motionPath: {
+						path,
+						align: path,
+						alignOrigin: [0.5, 0.5],
+					},
+				},
+				0
+			);
 		}, containerRef);
 
 		return () => ctx.revert();
