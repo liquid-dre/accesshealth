@@ -1,18 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
+import type { Theme } from "@/lib/resourcedata/featured";
 
 interface Resource {
 	id: string;
 	title: string;
 	[key: string]: unknown;
-}
-
-interface Theme {
-	background: string;
-	text: string;
-	icon?: LucideIcon;
 }
 
 interface EducationalHighlightProps {
