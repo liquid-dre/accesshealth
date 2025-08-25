@@ -70,7 +70,8 @@ export default function ContactPage() {
 												Address
 											</p>
 											<p className="text-lg text-gray-900 font-medium mt-1">
-												74X8+P2X, William Powlett Dr, Harare
+												Shop 22 Mini Mall, Hogerty Hill Centre, William Powlett
+												Dr, Harare
 											</p>
 										</div>
 									</div>
@@ -81,7 +82,7 @@ export default function ContactPage() {
 												Phone
 											</p>
 											<p className="text-lg text-gray-900 font-medium mt-1">
-												+263 (0) 77 000 0000
+												+263 (0) 78 345 8985
 											</p>
 										</div>
 									</div>

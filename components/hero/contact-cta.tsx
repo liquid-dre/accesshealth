@@ -19,7 +19,7 @@ export function ContactCTA() {
 							</p>
 							<div className="mt-6 space-y-2 text-sm text-muted-foreground">
 								<p>
-									<strong>Address:</strong> Shop 22 mini mall, Hogerty Hill
+									<strong>Address:</strong> Shop 22 Mini Mall, Hogerty Hill
 									Centre, William Powlett Dr, Harare
 								</p>
 								<p>

@@ -4,7 +4,9 @@ export function SiteFooter() {
 			<div className="container grid gap-8 py-12 md:grid-cols-3">
 				<div>
 					<div className="text-lg font-semibold">
-						<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
+						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">
+							Access
+						</span>{" "}
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</div>
 					<p className="mt-3 text-sm text-muted-foreground">
@@ -15,7 +17,7 @@ export function SiteFooter() {
 				<div>
 					<h4 className="font-semibold">Contact</h4>
 					<p className="mt-3 text-sm text-muted-foreground">
-						Shop 22 mini mall, Hogerty Hill Centre,
+						Shop 22 Mini Mall, Hogerty Hill Centre,
 						<br /> William Powlett Dr, Harare
 						<br />
 						+263 (0) 78 345 8985

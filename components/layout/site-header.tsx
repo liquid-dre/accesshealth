@@ -53,7 +53,7 @@ export function SiteHeader() {
 						className="font-semibold tracking-tight text-2xl sm:text-3xl md:text-4xl"
 						onClick={() => setLoading(true)}
 					>
-						<span className="text-[color:var(--brand-blue)]">Access</span>{" "}
+						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">Access</span>{" "}
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
 					<HeartPulseLoader className="h-4 w-16" />
