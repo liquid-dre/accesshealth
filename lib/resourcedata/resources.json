@@ -2,6 +2,12 @@
 	{
 		"id": "managing-hypertension-at-home",
 		"title": "Managing Hypertension at Home",
+		"featured": true,
+		"theme": {
+			"background": "bg-pink-50",
+			"text": "text-pink-800",
+			"icon": "ribbon"
+		},
 		"content": [
 			{ "type": "heading", "text": "Managing Hypertension at Home" },
 			{
