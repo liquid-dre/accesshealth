@@ -1,6 +1,7 @@
 // components/home/contact-cta.tsx
 import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function ContactCTA() {
 	return (
@@ -35,6 +36,7 @@ export function ContactCTA() {
 							<div className="mt-6">
 								<Button className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90">
 									Call now
+									<ArrowRight/>
 								</Button>
 							</div>
 						</div>

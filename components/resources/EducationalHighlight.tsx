@@ -40,7 +40,7 @@ export function EducationalHighlight({
 				</a>
 			</Card>
 			{showViewAll && (
-				<Button asChild>
+				<Button asChild className="hover:scale-115 hover:bg-red-600 dark:hover:text-white dark:bg-[#A2D8F5] dark:hover:bg-red-600">
 					<a href="/resources">View All Resources</a>
 				</Button>
 			)}
