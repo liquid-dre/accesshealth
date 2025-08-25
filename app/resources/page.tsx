@@ -112,7 +112,7 @@ export default function ResourcesPage() {
 	}, []);
 
 	return (
-		<section className="section" ref={scope}>
+		<section className="section bg-muted/50" ref={scope}>
 			<div className="container">
 				<SectionHeading
 					title="Educational resources"
@@ -126,7 +126,7 @@ export default function ResourcesPage() {
 				/>
 
 				{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+				<div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
 					{others.map((r: Resource) => (
 						<ResourceCard key={r.id} {...r} className="resource-card h-full" />
 					))}
