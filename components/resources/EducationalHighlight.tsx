@@ -14,12 +14,14 @@ interface EducationalHighlightProps {
 	resource: Resource;
 	theme: Theme;
 	badge?: string;
+	showViewAll?: boolean;
 }
 
 export function EducationalHighlight({
 	resource,
 	theme,
 	badge,
+	showViewAll = true,
 }: EducationalHighlightProps) {
 	const Icon = theme.icon;
 
@@ -37,9 +39,11 @@ export function EducationalHighlight({
 					{resource.title}
 				</a>
 			</Card>
-			<Button asChild>
-				<a href="/resources">View All Resources</a>
-			</Button>
+			{showViewAll && (
+				<Button asChild>
+					<a href="/resources">View All Resources</a>
+				</Button>
+			)}
 		</div>
 	);
 }

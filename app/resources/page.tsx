@@ -123,6 +123,7 @@ export default function ResourcesPage() {
 					resource={featured}
 					theme={featuredTheme}
 					badge="Monthly Featured Resource"
+					showViewAll={false}
 				/>
 
 				{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
