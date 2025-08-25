@@ -1,11 +1,10 @@
 "use client";
 
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Card } from "@/components/ui/card";
 import resourcesData from "@/lib/resourcedata/resources.json";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { cn } from "@/lib/utils";
+import { ResourceCard } from "@/components/resources/ResourceCard";
 
 type ResourceContent =
 	| { type: "heading"; text: string }
@@ -108,25 +107,7 @@ export default function ResourcesPage() {
 				{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
 					{resources.map((r: Resource) => (
-						<Card
-							key={r.id}
-							className={cn(
-								"resource-card h-full rounded-3xl p-6",
-								"bg-card text-card-foreground dark:bg-slate-800 dark:text-slate-100",
-								// No CSS hover transforms—GSAP controls hover entirely
-								"transition-[box-shadow,transform] will-change-transform"
-							)}
-						>
-							<a
-								className="font-semibold hover:underline underline-offset-4"
-								href={`/resource/${r.id}`}
-							>
-								{r.title}
-							</a>
-							<p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
-								Read more.
-							</p>
-						</Card>
+						<ResourceCard key={r.id} {...r} className="resource-card h-full" />
 					))}
 				</div>
 			</div>
