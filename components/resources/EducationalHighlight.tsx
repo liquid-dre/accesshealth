@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Theme } from "@/lib/resourcedata/featured";
 
@@ -12,17 +13,22 @@ interface Resource {
 interface EducationalHighlightProps {
 	resource: Resource;
 	theme: Theme;
+	badge?: string;
 }
 
 export function EducationalHighlight({
 	resource,
 	theme,
+	badge,
 }: EducationalHighlightProps) {
 	const Icon = theme.icon;
 
 	return (
 		<div className="max-w-md mx-auto md:max-w-xl space-y-4">
-			<Card className={cn("rounded-3xl p-6", theme.background, theme.text)}>
+			<Card
+				className={cn("relative rounded-3xl p-6", theme.background, theme.text)}
+			>
+				{badge && <Badge className="absolute top-4 right-4">{badge}</Badge>}
 				<a
 					href={`/resource/${resource.id}`}
 					className="flex items-center gap-4 font-semibold hover:underline underline-offset-4"

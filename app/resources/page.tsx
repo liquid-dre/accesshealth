@@ -5,6 +5,8 @@ import resourcesData from "@/lib/resourcedata/resources.json";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ResourceCard } from "@/components/resources/ResourceCard";
+import { EducationalHighlight } from "@/components/resources/EducationalHighlight";
+import { Ribbon } from "lucide-react";
 
 type ResourceContent =
 	| { type: "heading"; text: string }
@@ -18,9 +20,21 @@ interface Resource {
 	id: string;
 	title: string;
 	content: ResourceContent[];
+	featured?: boolean;
+	theme?: { background: string; text: string; icon?: string };
 }
 
 const resources = resourcesData as Resource[];
+const iconMap = { ribbon: Ribbon };
+const featured = resources.find((r) => r.featured)!;
+const others = resources.filter((r) => !r.featured);
+const featuredTheme = featured.theme
+	? {
+			background: featured.theme.background,
+			text: featured.theme.text,
+			icon: featured.theme.icon ? iconMap[featured.theme.icon] : undefined,
+		}
+	: { background: "", text: "" };
 
 export default function ResourcesPage() {
 	const scope = useRef<HTMLDivElement | null>(null);
@@ -104,9 +118,15 @@ export default function ResourcesPage() {
 					subtitle="Clear, accessible health guidance."
 				/>
 
+				<EducationalHighlight
+					resource={featured}
+					theme={featuredTheme}
+					badge="Monthly Featured Resource"
+				/>
+
 				{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-					{resources.map((r: Resource) => (
+					{others.map((r: Resource) => (
 						<ResourceCard key={r.id} {...r} className="resource-card h-full" />
 					))}
 				</div>
