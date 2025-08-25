@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { EducationalHighlight } from "@/components/resources/EducationalHighlight";
-import { Ribbon } from "lucide-react";
+import { Ribbon, type LucideIcon } from "lucide-react";
 
 type ResourceContent =
 	| { type: "heading"; text: string }
@@ -22,10 +22,11 @@ interface Resource {
 	content: ResourceContent[];
 	featured?: boolean;
 	theme?: { background: string; text: string; icon?: string };
+	[key: string]: unknown;
 }
 
 const resources = resourcesData as Resource[];
-const iconMap = { ribbon: Ribbon };
+const iconMap: Record<string, LucideIcon> = { ribbon: Ribbon };
 const featured = resources.find((r) => r.featured)!;
 const others = resources.filter((r) => !r.featured);
 const featuredTheme = featured.theme
