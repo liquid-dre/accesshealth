@@ -6,8 +6,8 @@ import {
 	LucideIcon,
 	Mail,
 	MapPin,
+	Music2,
 	Phone,
-	TicketCheckIcon,
 	Twitter,
 } from "lucide-react";
 
@@ -38,9 +38,9 @@ const socialLinks: {
 	{
 		href: "https://www.tiktok.com/@accesshealthclinic?_t=ZM-8zDt6WnSs8E&_r=1",
 		label: "TikTok",
-		icon: TicketCheckIcon,
+		icon: Music2,
 		className: "bg-gray-100 text-gray-800 hover:bg-black hover:text-white",
-	}
+	},
 ];
 
 export default function ContactPage() {
