@@ -84,41 +84,50 @@ export interface TeamMember {
 export const TEAM: TeamMember[] = [
 	{
 		serviceSlug: "gp-consultation",
-		name: "Dr. Alice N.",
-		bio: "Gentle, thorough, and family-focused.",
-		photoUrl: "/images/services/gp-consultation-service.jpg",
+		name: "Dr. Maumba M.N",
+		bio: "Overseeing excellence in patient-centered care.",
 	},
 	{
-		serviceSlug: "paediatric-clinic",
-		name: "Dr. Brian K.",
-		bio: "Compassionate care for children and parents.",
-		photoUrl: "/images/services/pediatrician1.jpg",
+		serviceSlug: "gp-consultation",
+		name: "Dr. Mutsayi R",
+		bio: "Providing compassionate and comprehensive general practice.",
+	},
+	// {
+	// 	serviceSlug: "paediatric-clinic",
+	// 	name: "Dr. Brian K.",
+	// 	bio: "Compassionate care for children and parents.",
+	// 	photoUrl: "/images/services/pediatrician1.jpg",
+	// },
+	{
+		serviceSlug: "specialist-physician",
+		name: "Dr. Makoni T.",
+		bio: "Expert in aerospace and internal medicine.",
 	},
 	{
 		serviceSlug: "specialist-physician",
-		name: "Dr. Chipo T.",
-		bio: "Evidence-based specialist care.",
-		photoUrl: "/images/services/specialist-service.webp",
+		name: "Dr. Madombi S.",
+		bio: "Dedicated to compassionate women's health care.",
+		// photoUrl: "/images/services/specialist-service.webp",
 	},
-	{
-		serviceSlug: "minor-surgical",
-		name: "Dr. David M.",
-		bio: "Precise surgical care with quick recovery.",
-		photoUrl: "/images/services/minor-surgery-service.avif",
-	},
-	{
-		serviceSlug: "family-health",
-		name: "Nurse Evelyn P.",
-		bio: "Supporting families through every stage of life.",
-	},
-	{
-		serviceSlug: "prescriptions",
-		name: "Pharmacist Farai G.",
-		bio: "Ensures safe and accurate prescriptions.",
-	},
-	{
-		name: "Nurse Emily R.",
-		bio: "Supportive care across family health services.",
-		serviceSlug: "family-health",
-	},
+	// {
+	// 	serviceSlug: "minor-surgical",
+	// 	name: "Dr. David M.",
+	// 	bio: "Precise surgical care with quick recovery.",
+	// 	photoUrl: "/images/services/minor-surgery-service.avif",
+	// },
+	// {
+	// 	serviceSlug: "family-health",
+	// 	name: "Nurse Evelyn P.",
+	// 	bio: "Supporting families through every stage of life.",
+	// },
+	// {
+	// 	serviceSlug: "prescriptions",
+	// 	name: "Pharmacist Farai G.",
+	// 	bio: "Ensures safe and accurate prescriptions.",
+	// },
+	// {
+	// 	name: "Nurse Emily R.",
+	// 	bio: "Supportive care across family health services.",
+	// 	serviceSlug: "family-health",
+	// },
 ];

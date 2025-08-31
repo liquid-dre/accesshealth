@@ -7,6 +7,7 @@ import {
 	Mail,
 	MapPin,
 	Phone,
+	TicketCheckIcon,
 	Twitter,
 } from "lucide-react";
 
@@ -17,23 +18,29 @@ const socialLinks: {
 	className: string;
 }[] = [
 	{
-		href: "#",
+		href: "https://www.facebook.com/share/1CeJVCTvRe/?mibextid=wwXIfr",
 		label: "Facebook",
 		icon: Facebook,
 		className: "bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white",
 	},
 	{
-		href: "#",
+		href: "https://www.instagram.com/accesshealthzw?igsh=OWdnNTV5ZnVydnZ3&utm_source=qr",
 		label: "Instagram",
 		icon: Instagram,
 		className: "bg-pink-100 text-pink-600 hover:bg-pink-600 hover:text-white",
 	},
 	{
-		href: "#",
+		href: "https://x.com/accesshealthzw?s=21",
 		label: "X",
 		icon: Twitter,
 		className: "bg-gray-100 text-gray-800 hover:bg-black hover:text-white",
 	},
+	{
+		href: "https://www.tiktok.com/@accesshealthclinic?_t=ZM-8zDt6WnSs8E&_r=1",
+		label: "TikTok",
+		icon: TicketCheckIcon,
+		className: "bg-gray-100 text-gray-800 hover:bg-black hover:text-white",
+	}
 ];
 
 export default function ContactPage() {
