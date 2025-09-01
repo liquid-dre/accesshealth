@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { EducationalHighlight } from "@/components/resources/EducationalHighlight";
 import { Ribbon, type LucideIcon } from "lucide-react";
+import { BentoGallery } from "@/components/resources/BentoGallery";
 
 type ResourceContent =
 	| { type: "heading"; text: string }
@@ -114,6 +115,7 @@ export default function ResourcesPage() {
 	return (
 		<section className="section bg-muted/50" ref={scope}>
 			<div className="container">
+				<BentoGallery />
 				<SectionHeading
 					title="Educational resources"
 					subtitle="Clear, accessible health guidance."
