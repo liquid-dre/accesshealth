@@ -25,7 +25,9 @@ export function ImageSlot({
 			: ratio === "tall"
 				? "aspect-[3/4]"
 				: "aspect-square";
+
 	const placeholderImage = fallbackSrc;
+	const resolvedPlaceholder = blurDataURL ? (placeholder ?? "blur") : "empty";
 
 	return (
 		<div
@@ -40,7 +42,7 @@ export function ImageSlot({
 				className="object-cover"
 				sizes="(min-width: 768px) 400px, 100vw"
 				priority={priority}
-				placeholder={placeholder}
+				placeholder={resolvedPlaceholder}
 				blurDataURL={blurDataURL}
 			/>
 		</div>
