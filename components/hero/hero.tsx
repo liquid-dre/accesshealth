@@ -62,7 +62,7 @@ export function Hero() {
 				</div>
 				<div>
 					<div className="card  p-3">
-						<ImageSlot alt="Clinic reception" ratio="wide" />
+						<ImageSlot alt="Clinic reception" ratio="wide" priority/>
 					</div>
 				</div>
 			</div>
