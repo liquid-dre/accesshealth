@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Theme } from "@/lib/resourcedata/featured";
+import Link from "next/link";
 
 interface Resource {
 	id: string;
@@ -31,20 +32,20 @@ export function EducationalHighlight({
 				className={cn("relative rounded-3xl p-6", theme.background, theme.text)}
 			>
 				{badge && <Badge className="absolute top-4 right-4">{badge}</Badge>}
-				<a
+				<Link
 					href={`/resource/${resource.id}`}
 					className="flex items-center gap-4 font-semibold hover:underline underline-offset-4"
 				>
 					{Icon && <Icon className="h-6 w-6" />}
 					{resource.title}
-				</a>
+				</Link>
 			</Card>
 			{showViewAll && (
 				<Button
 					asChild
 					className="relative overflow-hidden btn-pill hover:shadow-lift transition hover-heartbeat-red dark:hover:text-white dark:bg-[#A2D8F5]"
 				>
-					<a href="/resources">View All Resources</a>
+					<Link href="/resources">View All Resources</Link>
 				</Button>
 			)}
 		</div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function SiteFooter() {
 	return (
 		<footer className="mt-16 border-t border-border bg-background text-foreground">
@@ -32,24 +34,24 @@ export function SiteFooter() {
 					<h4 className="font-semibold">Quick Links</h4>
 					<ul className="mt-3 space-y-2 text-sm text-muted-foreground">
 						<li>
-							<a href="/services" className="hover:underline">
+							<Link href="/services" className="hover:underline">
 								Services
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="/team" className="hover:underline">
+							<Link href="/team" className="hover:underline">
 								Meet the Team
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="/resources" className="hover:underline">
+							<Link href="/resources" className="hover:underline">
 								Resources
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="/contact" className="hover:underline">
+							<Link href="/contact" className="hover:underline">
 								Book an Appointment
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
