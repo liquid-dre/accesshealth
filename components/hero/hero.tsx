@@ -1,6 +1,3 @@
-// components/home/hero.tsx
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Calendar, Mail } from "lucide-react";
