@@ -12,23 +12,17 @@ import {
 	SheetTitle,
 } from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
 	const [, setLoading] = useState(false);
 	const [isDark, setIsDark] = useState(false);
-	const router = useRouter();
 	const pathname = usePathname();
 
 	useEffect(() => setLoading(false), [pathname]);
 
-	useEffect(() => {
-		router.prefetch("/services");
-		router.prefetch("/team");
-		router.prefetch("/resources");
-		router.prefetch("/contact");
-	}, [router]);
+	useEffect(() => setLoading(false), [pathname]);
 
 	useEffect(() => {
 		const stored = localStorage.getItem("isDark");
@@ -53,7 +47,9 @@ export function SiteHeader() {
 						className="font-semibold tracking-tight text-2xl sm:text-3xl md:text-4xl"
 						onClick={() => setLoading(true)}
 					>
-						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">Access</span>{" "}
+						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">
+							Access
+						</span>{" "}
 						<span className="text-[color:var(--brand-red)]">Health</span>
 					</Link>
 					<HeartPulseLoader className="h-4 w-16" />
@@ -168,7 +164,10 @@ export function SiteHeader() {
 							>
 								Contact
 							</Link>
-							<Button asChild className="btn-pill bg-[color:var(--brand-blue)] text-white">
+							<Button
+								asChild
+								className="btn-pill bg-[color:var(--brand-blue)] text-white"
+							>
 								<Link
 									href="/contact"
 									onClick={() => {
