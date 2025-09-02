@@ -4,7 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { ConvexClientProvider } from "@/ConvexClientProvider";
+// import { ConvexClientProvider } from "@/ConvexClientProvider";
 import { Toaster } from "sonner";
 
 const plus = Plus_Jakarta_Sans({
@@ -28,7 +28,7 @@ export default function SiteLayout({
 			<body
 				className={`${plus.variable} font-sans antialiased bg-background text-foreground`}
 			>
-				<ConvexClientProvider>
+				{/* <ConvexClientProvider> */}
 					{/* soft hero-wide gradient like Unmind */}
 					<div className="pointer-events-none fixed inset-0 -z-10 dark:hidden">
 						<div
@@ -51,7 +51,7 @@ export default function SiteLayout({
 					<SiteHeader />
 					<main>{children}</main>
 					<SiteFooter />
-				</ConvexClientProvider>
+				{/* </ConvexClientProvider> */}
 			</body>
 		</html>
 	);
