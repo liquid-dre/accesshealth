@@ -1,27 +1,44 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Client } from "@microsoft/microsoft-graph-client";
+import { TokenCredentialAuthenticationProvider } from "@microsoft/microsoft-graph-client/authProviders/azureTokenCredentials";
+import { ClientSecretCredential } from "@azure/identity";
+import type { Message } from "@microsoft/microsoft-graph-types";
 
 export async function POST(req: Request) {
 	try {
 		const data = await req.json();
 		const { name, email, phone, message } = data;
 
-		const transporter = nodemailer.createTransport({
-			host: process.env.EMAIL_SMTP_HOST,
-			port: Number(process.env.EMAIL_SMTP_PORT) || 587,
-			secure: false,
-			auth: {
-				user: process.env.EMAIL_SMTP_USER,
-				pass: process.env.EMAIL_SMTP_PASS,
-			},
+		const credential = new ClientSecretCredential(
+			process.env.MS_TENANT_ID!,
+			process.env.MS_CLIENT_ID!,
+			process.env.MS_CLIENT_SECRET!
+		);
+
+		const authProvider = new TokenCredentialAuthenticationProvider(credential, {
+			scopes: ["https://graph.microsoft.com/.default"],
 		});
 
-		await transporter.sendMail({
-			from: process.env.EMAIL_SMTP_USER,
-			to: process.env.CONTACT_TO,
+		const client = Client.initWithMiddleware({ authProvider });
+
+		const mail: Message = {
 			subject: `New contact form submission from ${name}`,
-			text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
-		});
+			body: {
+				contentType: "text",
+				content: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
+			},
+			toRecipients: [
+				{
+					emailAddress: {
+						address: process.env.CONTACT_TO,
+					},
+				},
+			],
+		};
+
+		await client
+			.api(`/users/${process.env.MS_USER_ID}/sendMail`)
+			.post({ message: mail });
 
 		return NextResponse.json({ ok: true });
 	} catch (error) {
