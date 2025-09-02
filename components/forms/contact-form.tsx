@@ -8,6 +8,7 @@ import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 
 export function ContactForm() {
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 	const [values, setValues] = useState({
 		name: "",
 		email: "",
@@ -18,15 +19,21 @@ export function ContactForm() {
 	const submit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setLoading(true);
+		setError(null);
 		try {
-			await fetch("/api/contact", {
+			const res = await fetch("/api/contact", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(values),
 			});
+			if (!res.ok) {
+				const body = await res.json().catch(() => ({}));
+				setError(body.error || "Something went wrong. Please try again.");
+				return;
+			}
 			window.location.href = "/thank-you";
 		} catch {
-			alert("Something went wrong. Please try again.");
+			setError("Something went wrong. Please try again.");
 		} finally {
 			setLoading(false);
 		}
@@ -80,6 +87,11 @@ export function ContactForm() {
 					rows={4}
 				/>
 			</div>
+			{error && (
+				<p className="text-sm text-red-600" role="alert">
+					{error}
+				</p>
+			)}
 			<Button
 				type="submit"
 				disabled={loading}
