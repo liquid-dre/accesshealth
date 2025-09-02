@@ -3,7 +3,7 @@
 import { SectionHeading } from "@/components/shared/section-heading";
 import resourcesData from "@/lib/resourcedata/resources.json";
 import { useEffect, useRef } from "react";
-// import gsap from "gsap";
+import gsap from "gsap";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { EducationalHighlight } from "@/components/resources/EducationalHighlight";
 import { Ribbon, type LucideIcon } from "lucide-react";
@@ -16,6 +16,8 @@ type ResourceContent =
 	| { type: "list" | "orderedList"; items: string[] }
 	| { type: "blockquote"; text: string }
 	| { type: "link"; href: string; text: string };
+
+type GSAPContext = ReturnType<typeof gsap.context>;
 
 interface Resource {
 	id: string;
@@ -140,7 +142,7 @@ export default function ResourcesPage() {
 	const scope = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
-		let ctx: ReturnType<(typeof import("gsap"))["context"]> | undefined;
+		let ctx: GSAPContext | undefined;
 		const cleanupFns: Array<() => void> = [];
 		let isMounted = true;
 
