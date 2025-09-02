@@ -24,8 +24,17 @@ export async function POST(req: Request) {
 		const mail: Message = {
 			subject: `New contact form submission from ${name}`,
 			body: {
-				contentType: "text",
-				content: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
+				contentType: "html",
+				content: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <h2 style="margin-bottom: 16px; color: #0863C5;">New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${email}" style="color:#0863C5;">${email}</a></p>
+      <p><strong>Phone:</strong> <a href="tel:${phone}" style="color:#0863C5;">${phone}</a></p>
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;" />
+      <p style="white-space: pre-line;">${message}</p>
+    </div>
+  `,
 			},
 			toRecipients: [
 				{
