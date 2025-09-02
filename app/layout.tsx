@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ConvexClientProvider } from "@/ConvexClientProvider";
+import { Toaster } from "sonner";
 
 const plus = Plus_Jakarta_Sans({
 	subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function SiteLayout({
 							}}
 						/>
 					</div>
+					<Toaster richColors />
 
 					<SiteHeader />
 					<main>{children}</main>

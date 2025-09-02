@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
+import { toast } from "sonner";
 
 export function ContactForm() {
 	const [loading, setLoading] = useState(false);
@@ -26,14 +27,19 @@ export function ContactForm() {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(values),
 			});
+			const body = await res.json().catch(() => ({}));
 			if (!res.ok) {
-				const body = await res.json().catch(() => ({}));
-				setError(body.error || "Something went wrong. Please try again.");
+				const err = body.error || "Something went wrong. Please try again.";
+				setError(err);
+				toast.error(err);
 				return;
 			}
-			window.location.href = "/thank-you";
+			setValues({ name: "", email: "", phone: "", message: "" });
+			toast.success("Message sent successfully!");
 		} catch {
-			setError("Something went wrong. Please try again.");
+			const err = "Something went wrong. Please try again.";
+			setError(err);
+			toast.error(err);
 		} finally {
 			setLoading(false);
 		}
@@ -88,7 +94,7 @@ export function ContactForm() {
 				/>
 			</div>
 			{error && (
-				<p className="text-sm text-red-600" role="alert">
+				<p className="sr-only" role="alert">
 					{error}
 				</p>
 			)}
