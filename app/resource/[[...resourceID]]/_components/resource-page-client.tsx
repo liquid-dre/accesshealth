@@ -1,8 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-// import type { Context as GSAPContext } from "gsap";
-import Context from "gsap" 
+import type { Context as GSAPContext } from "gsap";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
