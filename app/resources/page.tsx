@@ -3,7 +3,7 @@
 import { SectionHeading } from "@/components/shared/section-heading";
 import resourcesData from "@/lib/resourcedata/resources.json";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+// import gsap from "gsap";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { EducationalHighlight } from "@/components/resources/EducationalHighlight";
 import { Ribbon, type LucideIcon } from "lucide-react";
@@ -39,76 +39,185 @@ const featuredTheme = featured.theme
 	: { background: "", text: "" };
 
 export default function ResourcesPage() {
+	// const scope = useRef<HTMLDivElement | null>(null);
+
+	// useEffect(() => {
+	// 	const cleanupFns: Array<() => void> = [];
+
+	// 	const ctx = gsap.context(() => {
+	// 		const cards = gsap.utils.toArray<HTMLElement>(".resource-card");
+
+	// 		// Load-in reveal (doesn't alter final layout)
+	// 		gsap.from(cards, {
+	// 			y: 36,
+	// 			opacity: 0,
+	// 			duration: 0.6,
+	// 			ease: "power2.out",
+	// 			stagger: 0.07,
+	// 			clearProps: "transform,opacity",
+	// 		});
+
+	// 		// Only bind hover for devices that actually support hover
+	// 		const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+	// 		if (canHover) {
+	// 			cards.forEach((card) => {
+	// 				// Ensure a clean baseline so layout stays aligned
+	// 				const isDarkMode =
+	// 					document.documentElement.classList.contains("dark");
+	// 				const baseShadow = isDarkMode
+	// 					? "0 6px 20px rgba(0,0,0,0.3)"
+	// 					: "0 6px 20px rgba(0,0,0,0.08)";
+	// 				const hoverShadow = isDarkMode
+	// 					? "0 12px 40px rgba(0,0,0,0.4)"
+	// 					: "0 12px 40px rgba(0,0,0,0.12)";
+	// 				gsap.set(card, {
+	// 					y: 0,
+	// 					scale: 1,
+	// 					boxShadow: baseShadow,
+	// 					transformOrigin: "center",
+	// 				});
+
+	// 				const tl = gsap
+	// 					.timeline({
+	// 						paused: true,
+	// 						defaults: {
+	// 							duration: 0.1,
+	// 							ease: "power4.out",
+	// 						},
+	// 					})
+	// 					.to(card, {
+	// 						y: 8,
+	// 						scale: 1.02,
+	// 						boxShadow: hoverShadow,
+	// 					});
+
+	// 				const onEnter = () => tl.play();
+	// 				const onLeave = () => tl.reverse();
+
+	// 				card.addEventListener("mouseenter", onEnter);
+	// 				card.addEventListener("mouseleave", onLeave);
+
+	// 				cleanupFns.push(() => {
+	// 					card.removeEventListener("mouseenter", onEnter);
+	// 					card.removeEventListener("mouseleave", onLeave);
+	// 				});
+	// 			});
+	// 		}
+	// 	}, scope);
+
+	// 	return () => {
+	// 		cleanupFns.forEach((fn) => fn());
+	// 		ctx.revert();
+	// 	};
+	// }, []);
+
+	// return (
+	// 	<section className="section bg-muted/50" ref={scope}>
+	// 		<div className="container">
+	// 			<ImageShowcase />
+	// 			<SectionHeading
+	// 				title="Educational resources"
+	// 				subtitle="Clear, accessible health guidance."
+	// 			/>
+
+	// 			<EducationalHighlight
+	// 				resource={featured}
+	// 				theme={featuredTheme}
+	// 				badge="Monthly Featured Resource"
+	// 				showViewAll={false}
+	// 			/>
+
+	// 			{/* Equal-height grid rows: auto-rows: 1fr + cards with h-full */}
+	// 			<div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+	// 				{others.map((r: Resource) => (
+	// 					<ResourceCard key={r.id} {...r} className="resource-card h-full" />
+	// 				))}
+	// 			</div>
+	// 		</div>
+	// 	</section>
+	// );
 	const scope = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
+		let ctx: ReturnType<(typeof import("gsap"))["context"]> | undefined;
 		const cleanupFns: Array<() => void> = [];
+		let isMounted = true;
 
-		const ctx = gsap.context(() => {
-			const cards = gsap.utils.toArray<HTMLElement>(".resource-card");
+		(async () => {
+			const gsap = (await import("gsap")).default;
 
-			// Load-in reveal (doesn't alter final layout)
-			gsap.from(cards, {
-				y: 36,
-				opacity: 0,
-				duration: 0.6,
-				ease: "power2.out",
-				stagger: 0.07,
-				clearProps: "transform,opacity",
-			});
+			if (!isMounted) return;
 
-			// Only bind hover for devices that actually support hover
-			const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+			ctx = gsap.context(() => {
+				const cards = gsap.utils.toArray<HTMLElement>(".resource-card");
 
-			if (canHover) {
-				cards.forEach((card) => {
-					// Ensure a clean baseline so layout stays aligned
-					const isDarkMode =
-						document.documentElement.classList.contains("dark");
-					const baseShadow = isDarkMode
-						? "0 6px 20px rgba(0,0,0,0.3)"
-						: "0 6px 20px rgba(0,0,0,0.08)";
-					const hoverShadow = isDarkMode
-						? "0 12px 40px rgba(0,0,0,0.4)"
-						: "0 12px 40px rgba(0,0,0,0.12)";
-					gsap.set(card, {
-						y: 0,
-						scale: 1,
-						boxShadow: baseShadow,
-						transformOrigin: "center",
-					});
+				// Load-in reveal (doesn't alter final layout)
+				gsap.from(cards, {
+					y: 36,
+					opacity: 0,
+					duration: 0.6,
+					ease: "power2.out",
+					stagger: 0.07,
+					clearProps: "transform,opacity",
+				});
 
-					const tl = gsap
-						.timeline({
-							paused: true,
-							defaults: {
-								duration: 0.1,
-								ease: "power4.out",
-							},
-						})
-						.to(card, {
-							y: 8,
-							scale: 1.02,
-							boxShadow: hoverShadow,
+				// Only bind hover for devices that actually support hover
+				const canHover = matchMedia(
+					"(hover: hover) and (pointer: fine)"
+				).matches;
+
+				if (canHover) {
+					cards.forEach((card) => {
+						// Ensure a clean baseline so layout stays aligned
+						const isDarkMode =
+							document.documentElement.classList.contains("dark");
+						const baseShadow = isDarkMode
+							? "0 6px 20px rgba(0,0,0,0.3)"
+							: "0 6px 20px rgba(0,0,0,0.08)";
+						const hoverShadow = isDarkMode
+							? "0 12px 40px rgba(0,0,0,0.4)"
+							: "0 12px 40px rgba(0,0,0,0.12)";
+						gsap.set(card, {
+							y: 0,
+							scale: 1,
+							boxShadow: baseShadow,
+							transformOrigin: "center",
 						});
 
-					const onEnter = () => tl.play();
-					const onLeave = () => tl.reverse();
+						const tl = gsap
+							.timeline({
+								paused: true,
+								defaults: {
+									duration: 0.1,
+									ease: "power4.out",
+								},
+							})
+							.to(card, {
+								y: 8,
+								scale: 1.02,
+								boxShadow: hoverShadow,
+							});
 
-					card.addEventListener("mouseenter", onEnter);
-					card.addEventListener("mouseleave", onLeave);
+						const onEnter = () => tl.play();
+						const onLeave = () => tl.reverse();
 
-					cleanupFns.push(() => {
-						card.removeEventListener("mouseenter", onEnter);
-						card.removeEventListener("mouseleave", onLeave);
+						card.addEventListener("mouseenter", onEnter);
+						card.addEventListener("mouseleave", onLeave);
+
+						cleanupFns.push(() => {
+							card.removeEventListener("mouseenter", onEnter);
+							card.removeEventListener("mouseleave", onLeave);
+						});
 					});
-				});
-			}
-		}, scope);
+				}
+			}, scope);
+		})();
 
 		return () => {
+			isMounted = false;
 			cleanupFns.forEach((fn) => fn());
-			ctx.revert();
+			ctx?.revert();
 		};
 	}, []);
 
