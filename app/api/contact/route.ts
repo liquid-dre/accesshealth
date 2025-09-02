@@ -3,11 +3,18 @@ import { Client } from "@microsoft/microsoft-graph-client";
 import { TokenCredentialAuthenticationProvider } from "@microsoft/microsoft-graph-client/authProviders/azureTokenCredentials";
 import { ClientSecretCredential } from "@azure/identity";
 import type { Message } from "@microsoft/microsoft-graph-types";
+import { contactEmail } from "@/lib/emailTemplates";
 
 export async function POST(req: Request) {
 	try {
 		const data = await req.json();
 		const { name, email, phone, message } = data;
+		const { html, text } = contactEmail({
+			name,
+			email,
+			phone,
+			message,
+		});
 
 		const credential = new ClientSecretCredential(
 			process.env.MS_TENANT_ID!,
@@ -25,16 +32,7 @@ export async function POST(req: Request) {
 			subject: `New contact form submission from ${name}`,
 			body: {
 				contentType: "html",
-				content: `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-      <h2 style="margin-bottom: 16px; color: #0863C5;">New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> <a href="mailto:${email}" style="color:#0863C5;">${email}</a></p>
-      <p><strong>Phone:</strong> <a href="tel:${phone}" style="color:#0863C5;">${phone}</a></p>
-      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;" />
-      <p style="white-space: pre-line;">${message}</p>
-    </div>
-  `,
+				content: html,
 			},
 			toRecipients: [
 				{
@@ -47,7 +45,7 @@ export async function POST(req: Request) {
 
 		await client
 			.api(`/users/${process.env.MS_USER_ID}/sendMail`)
-			.post({ message: mail });
+			.post({ message: mail, plainTextBody: text });
 
 		return NextResponse.json({ ok: true });
 	} catch (error) {
