@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import type { Context as GSAPContext } from "gsap";
+import type { default as GSAP } from "gsap";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -126,7 +126,7 @@ export const ResourceClientPage = ({
 	const circleRef = useRef<SVGCircleElement>(null);
 
 	useEffect(() => {
-		let ctx: GSAPContext | undefined;
+		let ctx: GSAP.Context | undefined;
 		let isMounted = true;
 
 		(async () => {
