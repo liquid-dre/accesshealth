@@ -10,6 +10,7 @@ import {
 	Phone,
 	Twitter,
 } from "lucide-react";
+import Map from "@/components/shared/map";
 
 const socialLinks: {
 	href: string;
@@ -53,14 +54,7 @@ export default function ContactPage() {
 						<div className="grid md:grid-cols-3 gap-8 items-center">
 							{/* Left Section: Map */}
 							<div className="md:col-span-2 rounded-lg overflow-hidden shadow-md">
-								<iframe
-									src="https://maps.google.com/maps?q=74X8%2BP2X%2C%20William%20Powlett%20Dr%2C%20Harare&output=embed"
-									className="w-full h-[450px] border-0"
-									loading="lazy"
-									allowFullScreen
-									referrerPolicy="no-referrer-when-downgrade"
-									aria-label="Location on Google Maps"
-								></iframe>
+								<Map />
 							</div>
 
 							{/* Right Section: Contact Information */}
