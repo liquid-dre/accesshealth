@@ -7,11 +7,10 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "@/components/shared/carousel";
-import { Reveal } from "@/components/shared/Reveal";
 
 export function Testimonials() {
 	return (
-		<Reveal as="section" className="section">
+		<section className="section">
 			<div className="container">
 				<div className="text-center mb-10">
 					<h2 className="text-3xl md:text-4xl font-semibold">
@@ -36,6 +35,6 @@ export function Testimonials() {
 					</CarouselContent>
 				</Carousel>
 			</div>
-		</Reveal>
+		</section>
 	);
 }

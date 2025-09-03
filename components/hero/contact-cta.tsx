@@ -1,13 +1,10 @@
-"use client";
-
 import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/components/shared/Reveal";
 
 export function ContactCTA() {
 	return (
-		<Reveal as="section" className="section">
+		<section id="contact" className="section">
 			<div className="container">
 				<div className="card grad-border p-10">
 					<div className="grid items-start gap-10 md:grid-cols-2">
@@ -38,7 +35,7 @@ export function ContactCTA() {
 							<div className="mt-6">
 								<Button className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90">
 									Call now
-									<ArrowRight />
+									<ArrowRight/>
 								</Button>
 							</div>
 						</div>
@@ -46,6 +43,6 @@ export function ContactCTA() {
 					</div>
 				</div>
 			</div>
-		</Reveal>
+		</section>
 	);
 }

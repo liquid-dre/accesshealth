@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface ResourceCardProps {
 	id: string;
@@ -30,13 +31,13 @@ export function ResourceCard({
 			)}
 		>
 			<div>
-				<a
+				<Link
 					className="font-semibold hover:underline underline-offset-4 flex items-center gap-2"
 					href={`/resource/${id}`}
 				>
 					{title}
 					<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-				</a>
+				</Link>
 				{description && (
 					<p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
 						{description}
