@@ -31,7 +31,7 @@ export function ResourceCard({
 			)}
 		>
 			<div>
-				<Link
+				<Link 
 					className="font-semibold hover:underline underline-offset-4 flex items-center gap-2"
 					href={`/resource/${id}`}
 				>
