@@ -4,12 +4,12 @@ import { ResourceClientPage } from "./_components/resource-page-client";
 import type { Block } from "@/components/resources/ContentBlocks";
 
 interface Resource {
-	id: string;
+	id: string | string[];
 	title: string;
 	content: string | Block[];
 }
 interface ResourcePageProps {
-        params: Promise<{ resourceId?: string[] }>;
+        params: Promise<{ resourceId?: string | string[] }>;
 }
 
 export default async function ResourcePage({ params }: ResourcePageProps) {
