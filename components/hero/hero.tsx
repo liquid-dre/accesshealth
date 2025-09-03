@@ -1,19 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Calendar, Mail } from "lucide-react";
 import { ImageSlot } from "@/components/shared/image-slot";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/shared/Reveal";
 
 export function Hero() {
 	return (
 		<section className="hero-spire section relative overflow-hidden">
-			<div className="container grid md:grid-cols-2 gap-12 items-center">
-				<div>
-					<h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-						The sooner you&apos;re better, the better
-					</h1>
-					<p className="mt-4 text-lg">
-						See an expert in as little as 48 hours.
-					</p>
+			<motion.div
+				className="container grid md:grid-cols-2 gap-12 items-center"
+				initial="hidden"
+				whileInView="show"
+				viewport={{ once: true, amount: 0.3 }}
+				transition={{ staggerChildren: 0.2 }}
+			>
+				<motion.div transition={{ staggerChildren: 0.2 }}>
+					<Reveal>
+						<h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+							The sooner you&apos;re better, the better
+						</h1>
+					</Reveal>
+					<Reveal transition={{ delay: 0.1 }}>
+						<p className="mt-4 text-lg">
+							See an expert in as little as 48 hours.
+						</p>
+					</Reveal>
 					<div className="mt-8 space-y-4">
 						<div className="flex flex-col items-center gap-4 rounded-full border border-border bg-card p-5 shadow-sm text-muted-foreground sm:flex-row">
 							<div className="flex items-start gap-3 flex-1">
@@ -59,13 +73,13 @@ export function Hero() {
 							</Button>
 						</div>
 					</div>
-				</div>
-				<div>
+				</motion.div>
+				<Reveal transition={{ delay: 0.2 }}>
 					<div className="card  p-3">
-						<ImageSlot alt="Clinic reception" ratio="wide" priority/>
+						<ImageSlot alt="Clinic reception" ratio="wide" priority />
 					</div>
-				</div>
-			</div>
+				</Reveal>
+			</motion.div>
 		</section>
 	);
 }
