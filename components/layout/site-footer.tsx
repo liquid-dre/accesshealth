@@ -1,15 +1,48 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function SiteFooter() {
+	const [isDark, setIsDark] = useState(false);
+
+	useEffect(() => {
+		const update = () =>
+			setIsDark(document.documentElement.classList.contains("dark"));
+		update();
+		const observer = new MutationObserver(update);
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
+		return () => observer.disconnect();
+	}, []);
+
 	return (
-		<footer className="mt-16 border-t border-border bg-background text-foreground">
+		<footer className="mt-16 border-t border-border bg-background text-foreground dark:bg-black">
 			<div className="container grid gap-8 py-12 md:grid-cols-3">
 				<div>
-					<div className="text-lg font-semibold">
-						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">
-							Access
-						</span>{" "}
-						<span className="text-[color:var(--brand-red)]">Health</span>
+					<div className="text-lg font-semibold h-8 md:h-10">
+						{!isDark ? (
+							<Image
+								src="/images/logo/Access%20Logo-2.png"
+								alt="Access Health logo"
+								width={160}
+								height={40}
+								className="h-8 md:h-10 w-auto hover:scale-115"
+								priority
+							/>
+						) : (
+							<Image
+								src="/images/logo/Access-logo-dark%202.jpg"
+								alt="Access Health logo"
+								width={160}
+								height={40}
+								className="h-8 md:h-10 w-auto hover:scale-115"
+								priority
+							/>
+						)}
 					</div>
 					<p className="mt-3 text-sm text-muted-foreground">
 						Warm, homely, and professional care for the whole family.

@@ -9,9 +9,10 @@ export const SERVICES = [
 		image: "/images/services/gp-consultation-service.jpg",
 	},
 	{
-		slug: "obstretician-&-gynaecologist-clinic",
-		title: "Obstretrician & Gynaecologist Clinic",
-		blurb: "Child-focused care with a gentle touch.",
+		slug: "obstetrician-&-gynaecologist-clinic",
+		title: "Obstetrician & Gynaecologist Clinic",
+		blurb:
+			"Comprehensive women’s health care, from pregnancy to wellness, delivered with compassion and expertise.",
 		image: "/images/services/pediatrician-service.jpg",
 	},
 	{
