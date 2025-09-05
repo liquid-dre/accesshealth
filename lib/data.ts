@@ -83,7 +83,7 @@ export interface TeamMember {
 
 export const TEAM: TeamMember[] = [
 	{
-		serviceSlug: "obstretician-&-gynaecologist-clinic",
+		serviceSlug: "gp-consultation",
 		name: "Dr. Maumbe M.N",
 		bio: "Overseeing excellence in patient-centered care.",
 	},
