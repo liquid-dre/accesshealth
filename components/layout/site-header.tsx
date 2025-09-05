@@ -40,7 +40,7 @@ export function SiteHeader() {
 	}, [isDark]);
 
 	return (
-		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
+		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b dark:bg-black">
 			<div className="container h-14 md:h-16 px-4 sm:px-6 flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<Link
@@ -58,10 +58,15 @@ export function SiteHeader() {
 								priority
 							/>
 						) : (
-							<div className="font-semibold tracking-tight text-3xl  hover:scale-115">
-								<span className="text-[#A2D8F5]">Access</span>{" "}
-								<span className="text-[color:var(--brand-red)]">Health</span>
-							</div>
+							// Access-logo-dark 2.jpg
+							<Image
+								src="/images/logo/Access-logo-dark%202.jpg"
+								alt="Access Health logo"
+								width={160}
+								height={40}
+								className="h-8 md:h-10 w-auto hover:scale-115"
+								priority
+							/>
 						)}
 					</Link>
 					<HeartPulseLoader className="h-4 w-16" />
