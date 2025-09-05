@@ -45,7 +45,7 @@ export function SiteFooter() {
 						)}
 					</div>
 					<p className="mt-3 text-sm text-muted-foreground">
-						Warm, homely, and professional care for the whole family.
+						Valuing Your Wellness
 					</p>
 				</div>
 
