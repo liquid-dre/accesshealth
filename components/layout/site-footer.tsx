@@ -26,7 +26,7 @@ export function SiteFooter() {
 						<br />
 						accesshealthclinics@gmail.com
 						<br />
-						<strong>Hours:</strong> Mon–Fri 08:00–18:00, Sat 09:00–13:00
+						<strong>Hours:</strong> Mon–Sun 08:00–18:00
 					</p>
 				</div>
 

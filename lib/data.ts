@@ -9,8 +9,8 @@ export const SERVICES = [
 		image: "/images/services/gp-consultation-service.jpg",
 	},
 	{
-		slug: "paediatric-clinic",
-		title: "Paediatric Clinic",
+		slug: "obstretician-&-gynaecologist-clinic",
+		title: "Obstretrician & Gynaecologist Clinic",
 		blurb: "Child-focused care with a gentle touch.",
 		image: "/images/services/pediatrician-service.jpg",
 	},
@@ -83,8 +83,8 @@ export interface TeamMember {
 
 export const TEAM: TeamMember[] = [
 	{
-		serviceSlug: "gp-consultation",
-		name: "Dr. Maumba M.N",
+		serviceSlug: "obstretician-&-gynaecologist-clinic",
+		name: "Dr. Maumbe M.N",
 		bio: "Overseeing excellence in patient-centered care.",
 	},
 	{
@@ -104,8 +104,8 @@ export const TEAM: TeamMember[] = [
 		bio: "Expert in aerospace and internal medicine.",
 	},
 	{
-		serviceSlug: "specialist-physician",
-		name: "Dr. Madombi S.",
+		serviceSlug: "obstretician-&-gynaecologist-clinic",
+		name: "Dr. Madombi S.W.",
 		bio: "Dedicated to compassionate women's health care.",
 		// photoUrl: "/images/services/specialist-service.webp",
 	},

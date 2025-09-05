@@ -34,6 +34,12 @@ export async function POST(req: Request) {
 				contentType: "html",
 				content: html,
 			},
+			from: {
+				emailAddress: {
+					address: process.env.CONTACT_FROM!,
+					name: "Layersync Enquiry",
+				},
+			},
 			toRecipients: [
 				{
 					emailAddress: {

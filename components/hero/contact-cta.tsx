@@ -29,7 +29,7 @@ export function ContactCTA() {
 									<strong>Email:</strong> accesshealthclinics@gmail.com
 								</p>
 								<p>
-									<strong>Hours:</strong> Mon–Fri 08:00–18:00, Sat 09:00–13:00
+									<strong>Hours:</strong> Mon–Sun 09:00–18:00
 								</p>
 							</div>
 							<div className="mt-6">

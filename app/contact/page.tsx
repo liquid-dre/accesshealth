@@ -94,7 +94,7 @@ export default function ContactPage() {
 												Email
 											</p>
 											<p className="text-lg text-gray-900 font-medium mt-1">
-												hello@accesshealth.co.zw
+												accesshealthclinics@gmail.com
 											</p>
 										</div>
 									</div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
 												Hours
 											</p>
 											<p className="text-lg text-gray-900 font-medium mt-1">
-												Mon–Fri 08:00–18:00, Sat 09:00–13:00
+												Mon–Sun 08:00–18:00
 											</p>
 										</div>
 									</div>
