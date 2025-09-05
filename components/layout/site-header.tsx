@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { HeartPulseLoader } from "../ui/heart-pulse-loader";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function SiteHeader() {
 	const [open, setOpen] = useState(false);
@@ -42,20 +43,27 @@ export function SiteHeader() {
 		<header className="sticky top-0 z-50 backdrop-blur bg-white/10 border-b">
 			<div className="container h-14 md:h-16 px-4 sm:px-6 flex items-center justify-between">
 				<div className="flex items-center gap-2">
-					<Link
-						href="/"
-						className="font-semibold tracking-tight text-2xl sm:text-3xl md:text-4xl"
-						onClick={() => setLoading(true)}
-					>
-						<span className="text-[color:var(--brand-blue)] dark:text-[#A2D8F5]">
-							Access
-						</span>{" "}
-						<span className="text-[color:var(--brand-red)]">Health</span>
+					<Link href="/" onClick={() => setLoading(true)}>
+						<Image
+							src="/images/logo/Access%20Logo-2.png"
+							alt="Access Health logo"
+							width={160}
+							height={40}
+							className="h-8 md:h-10 w-auto hover:scale-115"
+							priority
+						/>
 					</Link>
 					<HeartPulseLoader className="h-4 w-16" />
 				</div>
 
 				<nav className="hidden md:flex gap-6 items-center text-[15px]">
+					<Link
+						href="/"
+						className="hover:opacity-80"
+						onClick={() => setLoading(true)}
+					>
+						Home
+					</Link>
 					<Link
 						href="/services"
 						className="hover:opacity-80"
