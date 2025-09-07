@@ -33,9 +33,18 @@ export function ContactCTA() {
 								</p>
 							</div>
 							<div className="mt-6">
-								<Button className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90">
-									Contact us here
-									<ArrowRight/>
+								<Button
+									asChild
+									className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90"
+								>
+									<a
+										href="https://wa.me/263783458985"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Contact us here
+										<ArrowRight />
+									</a>
 								</Button>
 							</div>
 						</div>
