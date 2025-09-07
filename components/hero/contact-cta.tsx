@@ -34,7 +34,7 @@ export function ContactCTA() {
 							</div>
 							<div className="mt-6">
 								<Button className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90">
-									Call now
+									Contact us here
 									<ArrowRight/>
 								</Button>
 							</div>
