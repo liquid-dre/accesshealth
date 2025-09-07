@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function ContactCTA() {
 	return (
@@ -35,15 +35,15 @@ export function ContactCTA() {
 							<div className="mt-6">
 								<Button
 									asChild
-									className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[color:var(--brand-blue)]/90"
+									className="btn-pill bg-[color:var(--brand-blue)] text-white hover:bg-[#25D366]"
 								>
 									<a
 										href="https://wa.me/263783458985"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										Contact us here
-										<ArrowRight />
+										Connect on Whatsapp
+										<FaWhatsapp />
 									</a>
 								</Button>
 							</div>
