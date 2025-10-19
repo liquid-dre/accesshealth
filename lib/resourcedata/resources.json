@@ -1,7 +1,7 @@
 [
         {
                 "id": "breast-cancer-monthly-highlight",
-                "title": "Monthly Highlight: Understanding Breast Cancer",
+                "title": "Understanding Breast Cancer",
                 "featured": true,
                 "theme": {
                         "background": "bg-rose-50",
@@ -245,7 +245,7 @@
                         },
                         {
                                 "type": "image",
-                                "src": "/images/resources/malaria-transmission.svg",
+                                "src": "/images/resources/malaria-transmission.jpg",
                                 "alt": "Diagram showing the mosquito transmission cycle of malaria",
                                 "caption": "The malaria parasite develops inside mosquitoes before spreading to humans."
                         },
