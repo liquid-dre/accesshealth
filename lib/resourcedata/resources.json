@@ -1,57 +1,112 @@
 [
-	{
-		"id": "managing-hypertension-at-home",
-		"title": "Managing Hypertension at Home",
-		"featured": true,
-		"theme": {
-			"background": "bg-pink-50",
-			"text": "text-pink-800",
-			"icon": "ribbon"
-		},
-		"content": [
-			{ "type": "heading", "text": "Managing Hypertension at Home" },
-			{
-				"type": "paragraph",
-				"text": "High blood pressure can often be managed with simple lifestyle adjustments. Regularly checking your blood pressure at home gives you and your doctor valuable insight into how well your plan is working."
-			},
-			{
-				"type": "paragraph",
-				"text": "Maintaining a diet low in sodium, staying physically active, and taking medications as prescribed are key steps toward keeping your numbers in a healthy range."
-			},
-			{
-				"type": "image",
-				"src": "/images/resources/hypertension.jpg",
-				"alt": "Person checking blood pressure at home",
-				"caption": "Home monitoring is essential for controlling hypertension."
-			},
-			{
-				"type": "list",
-				"items": [
-					"Monitor blood pressure regularly",
-					"Reduce sodium intake",
-					"Stay active",
-					"Work with your healthcare provider"
-				]
-			},
-			{
-				"type": "blockquote",
-				"text": "Always consult your healthcare provider for personalized advice."
-			},
-			{
-				"type": "link",
-				"href": "https://www.cdc.gov/bloodpressure/index.htm",
-				"text": "Learn more about managing blood pressure on the CDC website"
-			},
-			{
-				"type": "orderedList",
-				"items": [
-					"Check your pressure daily",
-					"Record readings",
-					"Share results with your doctor"
-				]
-			}
-		]
-	},
+        {
+                "id": "breast-cancer-monthly-highlight",
+                "title": "Monthly Highlight: Understanding Breast Cancer",
+                "featured": true,
+                "theme": {
+                        "background": "bg-rose-50",
+                        "text": "text-rose-900",
+                        "icon": "ribbon"
+                },
+                "content": [
+                        { "type": "heading", "text": "Breast Cancer Overview" },
+                        {
+                                "type": "paragraph",
+                                "text": "Breast cancer is a type of cancer that begins when cells in the breast grow and divide more rapidly than healthy cells. Advances in screening allow healthcare professionals to detect breast cancer earlier, when it is most treatable. Even when it cannot be cured, many therapies are available to help people live longer, fuller lives."
+                        },
+                        { "type": "heading", "text": "Common Signs and Symptoms" },
+                        {
+                                "type": "paragraph",
+                                "text": "Contact your healthcare provider if you notice any of the following changes in your breast tissue. Early evaluation helps determine whether additional testing is needed."
+                        },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "A new lump or thickened area that feels different from surrounding tissue",
+                                        "A nipple that appears flattened or turns inward",
+                                        "Changes in skin color, including pink or red skin on lighter tones and darker, red, or purple skin on brown and Black skin",
+                                        "Shifts in the size, shape, or overall appearance of a breast",
+                                        "Skin dimpling or texture that resembles an orange peel",
+                                        "Peeling, scaling, crusting, or flaking of breast skin"
+                                ]
+                        },
+                        { "type": "heading", "text": "How Breast Cancer Is Diagnosed" },
+                        {
+                                "type": "paragraph",
+                                "text": "A diagnosis typically begins with a clinical assessment followed by imaging and, if needed, a biopsy. The information collected helps healthcare teams understand the type of breast cancer and the best treatment approach."
+                        },
+                        {
+                                "type": "orderedList",
+                                "items": [
+                                        "Initial assessment: A clinician performs a physical exam of the breasts and lymph nodes and reviews personal and family medical history.",
+                                        "Diagnostic imaging: Mammograms, ultrasounds, or MRIs create detailed pictures to investigate abnormalities and determine whether lumps are solid or fluid-filled.",
+                                        "Biopsy: Core biopsies, fine needle aspirations, or surgical biopsies collect cells or tissue for laboratory analysis to confirm whether cancer is present.",
+                                        "Staging tests: Imaging such as CT, bone, or PET scans may be ordered to see if the cancer has spread and to guide treatment planning."
+                                ]
+                        },
+                        {
+                                "type": "blockquote",
+                                "text": "Prompt evaluation of new breast changes leads to earlier answers and more treatment options."
+                        },
+                        {
+                                "type": "link",
+                                "href": "https://www.cancer.gov/types/breast",
+                                "text": "Explore comprehensive breast cancer information from the National Cancer Institute"
+                        }
+                ]
+        },
+        {
+                "id": "managing-hypertension-at-home",
+                "title": "Managing Hypertension at Home",
+                "theme": {
+                        "background": "bg-pink-50",
+                        "text": "text-pink-800",
+                        "icon": "ribbon"
+                },
+                "content": [
+                        { "type": "heading", "text": "Managing Hypertension at Home" },
+                        {
+                                "type": "paragraph",
+                                "text": "High blood pressure can often be managed with simple lifestyle adjustments. Regularly checking your blood pressure at home gives you and your doctor valuable insight into how well your plan is working."
+                        },
+                        {
+                                "type": "paragraph",
+                                "text": "Maintaining a diet low in sodium, staying physically active, and taking medications as prescribed are key steps toward keeping your numbers in a healthy range."
+                        },
+                        {
+                                "type": "image",
+                                "src": "/images/resources/hypertension.jpg",
+                                "alt": "Person checking blood pressure at home",
+                                "caption": "Home monitoring is essential for controlling hypertension."
+                        },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Monitor blood pressure regularly",
+                                        "Reduce sodium intake",
+                                        "Stay active",
+                                        "Work with your healthcare provider"
+                                ]
+                        },
+                        {
+                                "type": "blockquote",
+                                "text": "Always consult your healthcare provider for personalized advice."
+                        },
+                        {
+                                "type": "link",
+                                "href": "https://www.cdc.gov/bloodpressure/index.htm",
+                                "text": "Learn more about managing blood pressure on the CDC website"
+                        },
+                        {
+                                "type": "orderedList",
+                                "items": [
+                                        "Check your pressure daily",
+                                        "Record readings",
+                                        "Share results with your doctor"
+                                ]
+                        }
+                ]
+        },
 	{
 		"id": "childhood-vaccination-schedule",
 		"title": "Childhood Vaccination Schedule",
