@@ -136,11 +136,11 @@
 			}
 		]
 	},
-	{
-		"id": "understanding-ultrasound-scans",
-		"title": "Understanding Ultrasound Scans",
-		"content": [
-			{ "type": "heading", "text": "Understanding Ultrasound Scans" },
+        {
+                "id": "understanding-ultrasound-scans",
+                "title": "Understanding Ultrasound Scans",
+                "content": [
+                        { "type": "heading", "text": "Understanding Ultrasound Scans" },
 			{
 				"type": "paragraph",
 				"text": "Ultrasound imaging uses sound waves to produce pictures of organs and structures inside the body. It's a safe and painless procedure frequently used during pregnancy and to diagnose a range of conditions."
@@ -157,12 +157,137 @@
 			},
 			{
 				"type": "list",
-				"items": [
-					"Noninvasive diagnostic tool",
-					"Commonly used in prenatal care",
-					"Helps identify internal issues"
-				]
-			}
-		]
-	}
+                                "items": [
+                                        "Noninvasive diagnostic tool",
+                                        "Commonly used in prenatal care",
+                                        "Helps identify internal issues"
+                                ]
+                        }
+                ]
+        },
+        {
+                "id": "understanding-and-managing-diarrhoea",
+                "title": "Understanding and Managing Diarrhoea",
+                "content": [
+                        { "type": "heading", "text": "What Is Diarrhoea?" },
+                        {
+                                "type": "paragraph",
+                                "text": "Diarrhoea is defined as passing three or more loose, watery stools in a single day. It is usually short-lived, but persistent diarrhoea lasting four or more weeks can signal an underlying condition that needs medical care."
+                        },
+                        {
+                                "type": "paragraph",
+                                "text": "Because diarrhoea causes the body to lose fluids and electrolytes quickly, staying hydrated is the most important part of self-care. Seek medical help if you notice signs of dehydration, have a fever, or see blood in your stool."
+                        },
+                        { "type": "heading", "text": "Common Symptoms" },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Frequent, loose, or watery bowel movements",
+                                        "Abdominal pain and cramping",
+                                        "Nausea or queasiness"
+                                ]
+                        },
+                        { "type": "heading", "text": "Causes" },
+                        {
+                                "type": "paragraph",
+                                "text": "Diarrhoea can be acute (short-term) or chronic (long-term). Acute diarrhoea usually lasts a few days, while chronic diarrhoea lasts four weeks or longer."
+                        },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Acute causes: Viral gastroenteritis, bacterial food poisoning, medication side effects, or reactions to spicy or high-fat foods",
+                                        "Chronic causes: Persistent infections and medical conditions such as inflammatory bowel disease (IBD) or irritable bowel syndrome (IBS)"
+                                ]
+                        },
+                        { "type": "heading", "text": "Treatment and Prevention" },
+                        {
+                                "type": "paragraph",
+                                "text": "Focus on hydration first. Sip water, oral rehydration solutions (ORS), or broths to replace lost fluid and electrolytes."
+                        },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Practice frequent handwashing to reduce the spread of germs",
+                                        "Resume eating gentle solid foods when you feel ready, avoiding sugary drinks, caffeine, and high-fat meals",
+                                        "Talk with a healthcare professional if symptoms last more than a few days or occur with fever or blood"
+                                ]
+                        },
+                        {
+                                "type": "link",
+                                "href": "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease",
+                                "text": "Learn more about diarrhoeal disease from the World Health Organization"
+                        }
+                ]
+        },
+        {
+                "id": "malaria-awareness-and-prevention",
+                "title": "Malaria Awareness and Prevention",
+                "content": [
+                        { "type": "heading", "text": "Understanding Malaria" },
+                        {
+                                "type": "paragraph",
+                                "text": "Malaria is caused by Plasmodium parasites transmitted through the bites of infected Anopheles mosquitoes. Untreated malaria can quickly become life-threatening, so early diagnosis and treatment are critical."
+                        },
+                        { "type": "heading", "text": "Symptoms" },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Fever and chills, often in cycles",
+                                        "Headache, muscle and joint pain, and profound fatigue",
+                                        "Nausea, vomiting, diarrhoea, abdominal pain, or cough",
+                                        "Rapid breathing or heart rate"
+                                ]
+                        },
+                        { "type": "heading", "text": "Causes and Transmission" },
+                        {
+                                "type": "paragraph",
+                                "text": "An infected mosquito feeds on a person and injects parasites into the bloodstream. The parasites travel to the liver to mature before entering red blood cells, where they multiply and cause symptoms."
+                        },
+                        {
+                                "type": "image",
+                                "src": "/images/resources/malaria-transmission.svg",
+                                "alt": "Diagram showing the mosquito transmission cycle of malaria",
+                                "caption": "The malaria parasite develops inside mosquitoes before spreading to humans."
+                        },
+                        {
+                                "type": "orderedList",
+                                "items": [
+                                        "Mosquito becomes infected after feeding on a person with malaria",
+                                        "Parasites mature inside the mosquito",
+                                        "Infected mosquito bites another person, transmitting the parasites",
+                                        "Parasites travel to the liver and later invade red blood cells",
+                                        "A new mosquito can pick up parasites and continue the cycle"
+                                ]
+                        },
+                        {
+                                "type": "paragraph",
+                                "text": "Malaria can also spread through infected blood, including from mother to unborn child, blood transfusions, or shared needles."
+                        },
+                        { "type": "heading", "text": "Complications" },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Cerebral malaria, which can trigger seizures or coma",
+                                        "Breathing problems from fluid in the lungs",
+                                        "Organ failure affecting the kidneys, liver, or spleen",
+                                        "Severe anaemia or dangerously low blood sugar"
+                                ]
+                        },
+                        { "type": "heading", "text": "Prevention" },
+                        {
+                                "type": "list",
+                                "items": [
+                                        "Avoid mosquito bites by wearing long sleeves and trousers, especially from dusk to dawn",
+                                        "Use insect repellent containing DEET, picaridin, IR3535, oil of lemon eucalyptus (OLE), para-menthane-3,8-diol (PMD), or 2-undecanone",
+                                        "Treat clothing and bed nets with permethrin and sleep under insecticide-treated nets",
+                                        "Consult a healthcare provider about preventive medicines before, during, and after travel to malaria-prone areas"
+                                ]
+                        },
+                        {
+                                "type": "link",
+                                "href": "https://www.who.int/news-room/fact-sheets/detail/malaria",
+                                "text": "Read additional malaria guidance from the World Health Organization"
+                        }
+                ]
+        }
 ]
