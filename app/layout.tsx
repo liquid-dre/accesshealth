@@ -16,6 +16,10 @@ export const metadata: Metadata = {
 	title: "Access Health Clinic",
 	description:
 		"Warm, homely, and professional healthcare for families and seniors.",
+	icons: {
+		icon: "/images/logo/icon.png",
+		shortcut: "/images/logo/icon.png",
+	},
 };
 
 export default function SiteLayout({
@@ -29,28 +33,28 @@ export default function SiteLayout({
 				className={`${plus.variable} font-sans antialiased bg-background text-foreground`}
 			>
 				{/* <ConvexClientProvider> */}
-					{/* soft hero-wide gradient like Unmind */}
-					<div className="pointer-events-none fixed inset-0 -z-10 dark:hidden">
-						<div
-							className="absolute -top-40 -left-32 h-[50vh] w-[60vw] rounded-full blur-3xl opacity-50"
-							style={{
-								background:
-									"radial-gradient(800px 400px at 30% 20%, #dfe8ff 0%, transparent 60%)",
-							}}
-						/>
-						<div
-							className="absolute top-20 right-0 h-[45vh] w-[45vw] rounded-full blur-3xl opacity-40"
-							style={{
-								background:
-									"radial-gradient(600px 320px at 70% 10%, #ffd4d4 0%, transparent 60%)",
-							}}
-						/>
-					</div>
-					<Toaster richColors />
+				{/* soft hero-wide gradient like Unmind */}
+				<div className="pointer-events-none fixed inset-0 -z-10 dark:hidden">
+					<div
+						className="absolute -top-40 -left-32 h-[50vh] w-[60vw] rounded-full blur-3xl opacity-50"
+						style={{
+							background:
+								"radial-gradient(800px 400px at 30% 20%, #dfe8ff 0%, transparent 60%)",
+						}}
+					/>
+					<div
+						className="absolute top-20 right-0 h-[45vh] w-[45vw] rounded-full blur-3xl opacity-40"
+						style={{
+							background:
+								"radial-gradient(600px 320px at 70% 10%, #ffd4d4 0%, transparent 60%)",
+						}}
+					/>
+				</div>
+				<Toaster richColors />
 
-					<SiteHeader />
-					<main>{children}</main>
-					<SiteFooter />
+				<SiteHeader />
+				<main>{children}</main>
+				<SiteFooter />
 				{/* </ConvexClientProvider> */}
 			</body>
 		</html>
