@@ -17,8 +17,18 @@ export const metadata: Metadata = {
 	description:
 		"Warm, homely, and professional healthcare for families and seniors.",
 	icons: {
-		icon: "/images/logo/icon.png",
-		shortcut: "/images/logo/icon.png",
+		icon: [
+			{
+				url: "/icon.png",
+				type: "image/png",
+			},
+		],
+		shortcut: [
+			{
+				url: "/icon.png",
+				type: "image/png",
+			},
+		],
 	},
 };
 
