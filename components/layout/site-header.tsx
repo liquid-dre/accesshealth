@@ -122,17 +122,6 @@ export function SiteHeader() {
 					</Button>
 				</nav>
 
-				<div className="hidden md:block">
-					<Button
-						asChild
-						className="relative overflow-hidden btn-pill bg-[color:var(--brand-blue)] hover:shadow-lift transition hover-heartbeat-red text-white"
-					>
-						<Link href="/contact" onClick={() => setLoading(true)}>
-							Book an appointment
-						</Link>
-					</Button>
-				</div>
-
 				{/* Mobile */}
 				<Sheet open={open} onOpenChange={setOpen}>
 					<SheetTrigger asChild className="md:hidden">
@@ -188,20 +177,6 @@ export function SiteHeader() {
 							>
 								Contact
 							</Link>
-							<Button
-								asChild
-								className="btn-pill bg-[color:var(--brand-blue)] text-white"
-							>
-								<Link
-									href="/contact"
-									onClick={() => {
-										setOpen(false);
-										setLoading(true);
-									}}
-								>
-									Book
-								</Link>
-							</Button>
 							<Button
 								variant="ghost"
 								size="icon"
