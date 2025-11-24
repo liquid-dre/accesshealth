@@ -19,7 +19,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
 				} else {
 					router.push("/admin/login");
 				}
-			} catch (error) {
+			} catch {
 				router.push("/admin/login");
 			} finally {
 				setIsChecking(false);

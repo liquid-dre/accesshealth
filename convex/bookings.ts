@@ -1,6 +1,7 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 import { internal } from "./_generated/api";
+import { Id } from "./_generated/dataModel";
 
 export const createBooking = mutation({
 	args: {
@@ -13,6 +14,23 @@ export const createBooking = mutation({
 		timeSlot: v.string(), // HH:mm-HH:mm
 	},
 	handler: async (ctx, args) => {
+		// Validate practitioner exists and is active
+		const practitioner = await ctx.db.get(args.practitionerId);
+		if (!practitioner) {
+			throw new Error("Practitioner not found");
+		}
+		if (!practitioner.active) {
+			throw new Error("Practitioner is not active");
+		}
+
+		// Validate date is not in the past
+		const bookingDate = new Date(args.date);
+		const today = new Date();
+		today.setHours(0, 0, 0, 0);
+		if (bookingDate < today) {
+			throw new Error("Cannot book appointments in the past");
+		}
+
 		const bookingId = await ctx.db.insert("bookings", {
 			patientName: args.patientName,
 			patientPhone: args.patientPhone,
@@ -105,15 +123,49 @@ export const updateBooking = mutation({
 		timeSlot: v.optional(v.string()),
 	},
 	handler: async (ctx, args) => {
+		const booking = await ctx.db.get(args.id);
+		if (!booking) {
+			throw new Error("Booking not found");
+		}
+
 		const { id, ...updates } = args;
-		const updateData: any = {};
+		const updateData: {
+			patientName?: string;
+			patientPhone?: string;
+			patientEmail?: string;
+			practitionerId?: Id<"practitioners">;
+			reason?: string;
+			date?: string;
+			timeSlot?: string;
+		} = {};
+
+		// Validate practitioner if being updated
+		if (updates.practitionerId !== undefined) {
+			const practitioner = await ctx.db.get(updates.practitionerId);
+			if (!practitioner) {
+				throw new Error("Practitioner not found");
+			}
+			if (!practitioner.active) {
+				throw new Error("Practitioner is not active");
+			}
+			updateData.practitionerId = updates.practitionerId;
+		}
+
+		// Validate date if being updated
+		if (updates.date !== undefined) {
+			const bookingDate = new Date(updates.date);
+			const today = new Date();
+			today.setHours(0, 0, 0, 0);
+			if (bookingDate < today) {
+				throw new Error("Cannot book appointments in the past");
+			}
+			updateData.date = updates.date;
+		}
 
 		if (updates.patientName !== undefined) updateData.patientName = updates.patientName;
 		if (updates.patientPhone !== undefined) updateData.patientPhone = updates.patientPhone;
 		if (updates.patientEmail !== undefined) updateData.patientEmail = updates.patientEmail;
-		if (updates.practitionerId !== undefined) updateData.practitionerId = updates.practitionerId;
 		if (updates.reason !== undefined) updateData.reason = updates.reason;
-		if (updates.date !== undefined) updateData.date = updates.date;
 		if (updates.timeSlot !== undefined) updateData.timeSlot = updates.timeSlot;
 
 		await ctx.db.patch(id, updateData);
@@ -173,6 +225,11 @@ export const rejectBooking = mutation({
 		id: v.id("bookings"),
 	},
 	handler: async (ctx, args) => {
+		const booking = await ctx.db.get(args.id);
+		if (!booking) {
+			throw new Error("Booking not found");
+		}
+
 		await ctx.db.patch(args.id, {
 			status: "rejected",
 		});

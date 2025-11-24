@@ -11,7 +11,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 
 export default function PractitionersPage() {
-	const practitioners = useQuery(api.practitioners.listPractitioners);
+	const practitioners = useQuery(api.practitioners.listPractitioners, {});
 
 	return (
 		<AdminGuard>

@@ -3,6 +3,15 @@ import { internal } from "./_generated/api";
 import { api } from "./_generated/api";
 import { v } from "convex/values";
 
+function escapeHtml(text: string): string {
+	return text
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+}
+
 export const sendAdminNotification = internalAction({
 	args: {
 		bookingId: v.id("bookings"),
@@ -36,16 +45,16 @@ export const sendAdminNotification = internalAction({
 				body: JSON.stringify({
 					from: "Access Health <noreply@accesshealth.com>",
 					to: [adminEmail],
-					subject: `New Booking Request: ${booking.patientName}`,
+					subject: `New Booking Request: ${escapeHtml(booking.patientName)}`,
 					html: `
 						<h2>New Booking Request</h2>
-						<p><strong>Patient:</strong> ${booking.patientName}</p>
-						<p><strong>Phone:</strong> ${booking.patientPhone}</p>
-						<p><strong>Practitioner:</strong> ${practitioner.fullName}</p>
-						<p><strong>Date:</strong> ${booking.date}</p>
-						<p><strong>Time:</strong> ${booking.timeSlot}</p>
-						<p><strong>Reason:</strong> ${booking.reason}</p>
-						<p><strong>Status:</strong> ${booking.status}</p>
+						<p><strong>Patient:</strong> ${escapeHtml(booking.patientName)}</p>
+						<p><strong>Phone:</strong> ${escapeHtml(booking.patientPhone)}</p>
+						<p><strong>Practitioner:</strong> ${escapeHtml(practitioner.fullName)}</p>
+						<p><strong>Date:</strong> ${escapeHtml(booking.date)}</p>
+						<p><strong>Time:</strong> ${escapeHtml(booking.timeSlot)}</p>
+						<p><strong>Reason:</strong> ${escapeHtml(booking.reason)}</p>
+						<p><strong>Status:</strong> ${escapeHtml(booking.status)}</p>
 					`,
 				}),
 			});
@@ -98,16 +107,16 @@ export const sendPatientConfirmation = internalAction({
 				body: JSON.stringify({
 					from: "Access Health <noreply@accesshealth.com>",
 					to: [patientEmail],
-					subject: `Booking Confirmed: ${booking.date} at ${booking.timeSlot}`,
+					subject: `Booking Confirmed: ${escapeHtml(booking.date)} at ${escapeHtml(booking.timeSlot)}`,
 					html: `
 						<h2>Your Booking is Confirmed</h2>
-						<p>Dear ${booking.patientName},</p>
+						<p>Dear ${escapeHtml(booking.patientName)},</p>
 						<p>Your appointment has been confirmed:</p>
 						<ul>
-							<li><strong>Practitioner:</strong> ${practitioner.fullName}</li>
-							<li><strong>Date:</strong> ${booking.date}</li>
-							<li><strong>Time:</strong> ${booking.timeSlot}</li>
-							<li><strong>Reason:</strong> ${booking.reason}</li>
+							<li><strong>Practitioner:</strong> ${escapeHtml(practitioner.fullName)}</li>
+							<li><strong>Date:</strong> ${escapeHtml(booking.date)}</li>
+							<li><strong>Time:</strong> ${escapeHtml(booking.timeSlot)}</li>
+							<li><strong>Reason:</strong> ${escapeHtml(booking.reason)}</li>
 						</ul>
 						<p>Please arrive 10 minutes before your scheduled time.</p>
 						<p>If you need to reschedule or cancel, please contact us.</p>

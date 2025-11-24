@@ -14,7 +14,19 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-const defaultWorkingHours = {
+type TimeRange = { start: string; end: string };
+
+type WorkingHours = {
+	monday: TimeRange[];
+	tuesday: TimeRange[];
+	wednesday: TimeRange[];
+	thursday: TimeRange[];
+	friday: TimeRange[];
+	saturday: TimeRange[];
+	sunday: TimeRange[];
+};
+
+const defaultWorkingHours: WorkingHours = {
 	monday: [{ start: "09:00", end: "17:00" }],
 	tuesday: [{ start: "09:00", end: "17:00" }],
 	wednesday: [{ start: "09:00", end: "17:00" }],

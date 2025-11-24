@@ -12,7 +12,6 @@ import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
@@ -20,18 +19,15 @@ import {
 import Link from "next/link";
 import { ArrowLeft, CheckCircle, XCircle, Edit } from "lucide-react";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
-export default function BookingDetailPage({
-	params,
-}: {
-	params: { id: string };
-}) {
-	const router = useRouter();
+export default function BookingDetailPage() {
+	const params = useParams();
+	const bookingId = params.id as string;
 	const [isEditOpen, setIsEditOpen] = useState(false);
 	const booking = useQuery(api.bookings.getBooking, {
-		id: params.id as Id<"bookings">,
+		id: bookingId as Id<"bookings">,
 	});
 
 	const confirmBooking = useMutation(api.bookings.confirmBooking);
@@ -39,18 +35,19 @@ export default function BookingDetailPage({
 
 	const handleConfirm = async () => {
 		try {
-			await confirmBooking({ id: params.id as Id<"bookings"> });
+			await confirmBooking({ id: bookingId as Id<"bookings"> });
 			toast.success("Booking confirmed");
-		} catch (error: any) {
-			toast.error(error.message || "Failed to confirm booking");
+		} catch (error) {
+			const message = error instanceof Error ? error.message : "Failed to confirm booking";
+			toast.error(message);
 		}
 	};
 
 	const handleReject = async () => {
 		try {
-			await rejectBooking({ id: params.id as Id<"bookings"> });
+			await rejectBooking({ id: bookingId as Id<"bookings"> });
 			toast.success("Booking rejected");
-		} catch (error) {
+		} catch {
 			toast.error("Failed to reject booking");
 		}
 	};

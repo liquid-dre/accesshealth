@@ -6,12 +6,12 @@ import { api } from "@/convex/_generated/api";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Plus, Calendar, Users, CheckCircle, XCircle, LogOut } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { Id } from "@/convex/_generated/dataModel";
 
 export default function AdminDashboard() {
 	const router = useRouter();
@@ -26,18 +26,18 @@ export default function AdminDashboard() {
 
 	const handleConfirm = async (id: string) => {
 		try {
-			await confirmBooking({ id: id as any });
+			await confirmBooking({ id: id as Id<"bookings"> });
 			toast.success("Booking confirmed");
-		} catch (error) {
+		} catch {
 			toast.error("Failed to confirm booking");
 		}
 	};
 
 	const handleReject = async (id: string) => {
 		try {
-			await rejectBooking({ id: id as any });
+			await rejectBooking({ id: id as Id<"bookings"> });
 			toast.success("Booking rejected");
-		} catch (error) {
+		} catch {
 			toast.error("Failed to reject booking");
 		}
 	};
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
 		try {
 			await fetch("/api/admin/logout", { method: "POST" });
 			router.push("/admin/login");
-		} catch (error) {
+		} catch {
 			toast.error("Failed to logout");
 		}
 	};

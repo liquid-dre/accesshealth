@@ -52,7 +52,22 @@ export const updatePractitioner = mutation({
 	},
 	handler: async (ctx, args) => {
 		const { id, ...updates } = args;
-		const updateData: any = {};
+		const updateData: {
+			fullName?: string;
+			email?: string;
+			phone?: string;
+			specialty?: string;
+			workingHours?: {
+				monday: Array<{ start: string; end: string }>;
+				tuesday: Array<{ start: string; end: string }>;
+				wednesday: Array<{ start: string; end: string }>;
+				thursday: Array<{ start: string; end: string }>;
+				friday: Array<{ start: string; end: string }>;
+				saturday: Array<{ start: string; end: string }>;
+				sunday: Array<{ start: string; end: string }>;
+			};
+			active?: boolean;
+		} = {};
 		
 		if (updates.fullName !== undefined) updateData.fullName = updates.fullName;
 		if (updates.email !== undefined) updateData.email = updates.email;

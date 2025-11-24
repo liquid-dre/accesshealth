@@ -60,6 +60,7 @@ export function BookingForm({ initialData, onSuccess }: BookingFormProps) {
 
 	const createBooking = useMutation(api.bookings.createBooking);
 	const updateBooking = useMutation(api.bookings.updateBooking);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -69,6 +70,7 @@ export function BookingForm({ initialData, onSuccess }: BookingFormProps) {
 			return;
 		}
 
+		setIsSubmitting(true);
 		try {
 			if (initialData) {
 				await updateBooking({
@@ -95,10 +97,14 @@ export function BookingForm({ initialData, onSuccess }: BookingFormProps) {
 				toast.success("Booking created successfully");
 			}
 			onSuccess?.();
-			router.push("/admin/dashboard");
+			if (!onSuccess) {
+				router.push("/admin/dashboard");
+			}
 		} catch (error) {
-			toast.error("Failed to save booking");
-			console.error(error);
+			const message = error instanceof Error ? error.message : "Failed to save booking";
+			toast.error(message);
+		} finally {
+			setIsSubmitting(false);
 		}
 	};
 
@@ -191,8 +197,12 @@ export function BookingForm({ initialData, onSuccess }: BookingFormProps) {
 				/>
 			</div>
 
-			<Button type="submit" className="w-full bg-[#007966] hover:bg-[#007966]/90">
-				{initialData ? "Update Booking" : "Create Booking"}
+			<Button 
+				type="submit" 
+				className="w-full bg-[#007966] hover:bg-[#007966]/90"
+				disabled={isSubmitting}
+			>
+				{isSubmitting ? "Saving..." : initialData ? "Update Booking" : "Create Booking"}
 			</Button>
 		</form>
 	);
