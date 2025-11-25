@@ -33,7 +33,7 @@ export function Hero() {
 								asChild
 								className="btn-pill rounded-full bg-[color:var(--primary)] text-white transition-all duration-200 hover:scale-120 hover:bg-[color:var(--primary)]/90 active:scale-95 dark:bg-[#42d9c8] dark:hover:bg-[#42d9c8]/90 dark:text-black"
 							>
-								<Link href="#contact">Book online</Link>
+								<Link href="/admin/bookings/create">Book online</Link>
 							</Button>
 						</div>
 						<div className="flex flex-col items-center gap-4 rounded-full border border-border bg-card p-5 shadow-sm text-muted-foreground sm:flex-row">
