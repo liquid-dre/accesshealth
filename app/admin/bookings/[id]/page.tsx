@@ -47,8 +47,9 @@ export default function BookingDetailPage() {
 		try {
 			await rejectBooking({ id: bookingId as Id<"bookings"> });
 			toast.success("Booking rejected");
-		} catch {
-			toast.error("Failed to reject booking");
+		} catch (error) {
+			const message = error instanceof Error ? error.message : "Failed to reject booking";
+			toast.error(message);
 		}
 	};
 

@@ -70,6 +70,12 @@ export function BookingForm({ initialData, onSuccess }: BookingFormProps) {
 			return;
 		}
 
+		// Validate email format if provided
+		if (patientEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(patientEmail)) {
+			toast.error("Please enter a valid email address");
+			return;
+		}
+
 		setIsSubmitting(true);
 		try {
 			if (initialData) {

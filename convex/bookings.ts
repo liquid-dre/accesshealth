@@ -14,6 +14,16 @@ export const createBooking = mutation({
 		timeSlot: v.string(), // HH:mm-HH:mm
 	},
 	handler: async (ctx, args) => {
+		// Validate date format
+		if (!/^\d{4}-\d{2}-\d{2}$/.test(args.date)) {
+			throw new Error("Invalid date format. Expected YYYY-MM-DD");
+		}
+
+		// Validate time slot format
+		if (!/^\d{2}:\d{2}-\d{2}:\d{2}$/.test(args.timeSlot)) {
+			throw new Error("Invalid time slot format. Expected HH:mm-HH:mm");
+		}
+
 		// Validate practitioner exists and is active
 		const practitioner = await ctx.db.get(args.practitionerId);
 		if (!practitioner) {
@@ -24,7 +34,10 @@ export const createBooking = mutation({
 		}
 
 		// Validate date is not in the past
-		const bookingDate = new Date(args.date);
+		const bookingDate = new Date(args.date + "T00:00:00");
+		if (isNaN(bookingDate.getTime())) {
+			throw new Error("Invalid date");
+		}
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 		if (bookingDate < today) {
@@ -153,13 +166,52 @@ export const updateBooking = mutation({
 
 		// Validate date if being updated
 		if (updates.date !== undefined) {
-			const bookingDate = new Date(updates.date);
+			if (!/^\d{4}-\d{2}-\d{2}$/.test(updates.date)) {
+				throw new Error("Invalid date format. Expected YYYY-MM-DD");
+			}
+			const bookingDate = new Date(updates.date + "T00:00:00");
+			if (isNaN(bookingDate.getTime())) {
+				throw new Error("Invalid date");
+			}
 			const today = new Date();
 			today.setHours(0, 0, 0, 0);
 			if (bookingDate < today) {
 				throw new Error("Cannot book appointments in the past");
 			}
 			updateData.date = updates.date;
+		}
+
+		// Validate time slot format if being updated
+		if (updates.timeSlot !== undefined) {
+			if (!/^\d{2}:\d{2}-\d{2}:\d{2}$/.test(updates.timeSlot)) {
+				throw new Error("Invalid time slot format. Expected HH:mm-HH:mm");
+			}
+		}
+
+		// If date or timeSlot is being updated, validate slot availability
+		if ((updates.date !== undefined || updates.timeSlot !== undefined || updates.practitionerId !== undefined) && booking.status === "confirmed") {
+			const finalDate = updates.date ?? booking.date;
+			const finalTimeSlot = updates.timeSlot ?? booking.timeSlot;
+			const finalPractitionerId = updates.practitionerId ?? booking.practitionerId;
+
+			// Check if slot is available
+			const conflictingBookings = await ctx.db
+				.query("bookings")
+				.withIndex("by_practitioner_date", (q) =>
+					q.eq("practitionerId", finalPractitionerId).eq("date", finalDate)
+				)
+				.filter((q) =>
+					q.and(
+						q.eq(q.field("status"), "confirmed"),
+						q.eq(q.field("timeSlot"), finalTimeSlot),
+						q.neq(q.field("_id"), booking._id)
+					)
+				)
+				.collect();
+
+			if (conflictingBookings.length > 0) {
+				throw new Error("Time slot is already booked");
+			}
 		}
 
 		if (updates.patientName !== undefined) updateData.patientName = updates.patientName;
@@ -187,7 +239,7 @@ export const confirmBooking = mutation({
 			return booking._id;
 		}
 
-		// Check if slot is still available
+		// Double-check slot availability right before confirming (prevents race condition)
 		const confirmedBookings = await ctx.db
 			.query("bookings")
 			.withIndex("by_practitioner_date", (q) =>
@@ -204,6 +256,15 @@ export const confirmBooking = mutation({
 
 		if (confirmedBookings.length > 0) {
 			throw new Error("Time slot is already booked");
+		}
+
+		// Re-fetch booking to ensure it's still pending (additional race condition check)
+		const currentBooking = await ctx.db.get(args.id);
+		if (!currentBooking) {
+			throw new Error("Booking not found");
+		}
+		if (currentBooking.status !== "pending") {
+			throw new Error(`Booking is already ${currentBooking.status}`);
 		}
 
 		await ctx.db.patch(args.id, {
