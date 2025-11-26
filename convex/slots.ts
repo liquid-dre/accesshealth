@@ -7,7 +7,13 @@ type TimeSlot = {
 };
 
 function parseTime(time: string): number {
+	if (!/^\d{2}:\d{2}$/.test(time)) {
+		throw new Error(`Invalid time format: ${time}. Expected HH:mm`);
+	}
 	const [hours, minutes] = time.split(":").map(Number);
+	if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59 || isNaN(hours) || isNaN(minutes)) {
+		throw new Error(`Invalid time: ${time}`);
+	}
 	return hours * 60 + minutes;
 }
 
@@ -22,6 +28,10 @@ function generateSlotsFromRange(start: string, end: string, slotLength: number =
 	const startMinutes = parseTime(start);
 	const endMinutes = parseTime(end);
 	
+	if (endMinutes <= startMinutes) {
+		return []; // Invalid range
+	}
+	
 	let current = startMinutes;
 	while (current + slotLength <= endMinutes) {
 		slots.push({
@@ -35,8 +45,14 @@ function generateSlotsFromRange(start: string, end: string, slotLength: number =
 }
 
 function getDayName(date: string): string {
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+		throw new Error(`Invalid date format: ${date}. Expected YYYY-MM-DD`);
+	}
 	const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-	const d = new Date(date);
+	const d = new Date(date + "T00:00:00");
+	if (isNaN(d.getTime())) {
+		throw new Error(`Invalid date: ${date}`);
+	}
 	return dayNames[d.getDay()];
 }
 

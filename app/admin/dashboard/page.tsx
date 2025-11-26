@@ -28,8 +28,9 @@ export default function AdminDashboard() {
 		try {
 			await confirmBooking({ id: id as Id<"bookings"> });
 			toast.success("Booking confirmed");
-		} catch {
-			toast.error("Failed to confirm booking");
+		} catch (error) {
+			const message = error instanceof Error ? error.message : "Failed to confirm booking";
+			toast.error(message);
 		}
 	};
 
@@ -37,8 +38,9 @@ export default function AdminDashboard() {
 		try {
 			await rejectBooking({ id: id as Id<"bookings"> });
 			toast.success("Booking rejected");
-		} catch {
-			toast.error("Failed to reject booking");
+		} catch (error) {
+			const message = error instanceof Error ? error.message : "Failed to reject booking";
+			toast.error(message);
 		}
 	};
 

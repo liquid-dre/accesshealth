@@ -58,7 +58,8 @@ export function SlotSelector({
 	return (
 		<div className="grid grid-cols-3 gap-2">
 			{availableSlots.map((slot) => {
-				const [start] = slot.split("-");
+				const parts = slot.split("-");
+				const start = parts[0] || slot; // Fallback if format is unexpected
 				const isSelected = selectedSlot === slot;
 				return (
 					<Button
